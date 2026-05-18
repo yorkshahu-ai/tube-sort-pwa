@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#07131f" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="試管分類" />
+    <title>試管分類實驗室</title>
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="apple-touch-icon" href="./assets/icon-192.png" />
+    <link rel="icon" href="./assets/icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css?v=7" />
+  </head>
+  <body>
+    <main class="app-shell" aria-label="試管分類遊戲">
+      <header class="top-bar">
+        <button class="icon-button back-button" type="button" aria-label="返回">
+          <span aria-hidden="true">↶</span>
+        </button>
+        <div class="level-heading">
+          <span class="eyebrow">LAB SORT</span>
+          <h1 id="levelTitle">第 1 關</h1>
+        </div>
+        <label class="pattern-toggle">
+          <span>圖案模式</span>
+          <input id="patternToggle" type="checkbox" checked />
+        </label>
+      </header>
+
+      <section class="status-panel" aria-live="polite">
+        <div>
+          <span class="status-label">移動</span>
+          <strong id="moveCount">0</strong>
+        </div>
+        <div>
+          <span class="status-label">空瓶</span>
+          <strong id="emptyBottleCount">1</strong>
+        </div>
+        <div>
+          <span class="status-label">進度</span>
+          <strong id="progressCount">0%</strong>
+        </div>
+      </section>
+
+      <section id="message" class="message" aria-live="polite">選擇一支試管開始倒入。</section>
+
+      <section id="board" class="board" aria-label="試管區"></section>
+
+      <nav class="controls" aria-label="操作按鈕">
+        <button id="hintButton" class="control-button red" type="button">
+          <span aria-hidden="true">◉</span>
+          <span>提示</span>
+        </button>
+        <button id="undoButton" class="control-button red" type="button">
+          <span aria-hidden="true">↩</span>
+          <span>撤回</span>
+        </button>
+        <button id="addTubeButton" class="control-button amber" type="button">
+          <span aria-hidden="true">＋</span>
+          <span>空瓶</span>
+        </button>
+        <button id="restartButton" class="control-button steel" type="button">
+          <span aria-hidden="true">⟲</span>
+          <span>重開</span>
+        </button>
+      </nav>
+    </main>
+
+    <dialog id="winDialog" class="win-dialog" aria-labelledby="winTitle">
+      <div class="win-card">
+        <p class="eyebrow">EXPERIMENT COMPLETE</p>
+        <h2 id="winTitle">分類完成</h2>
+        <p id="winText">所有試劑都整理好了。</p>
+        <div class="dialog-actions">
+          <button id="replayButton" class="dialog-button secondary" type="button">再玩一次</button>
+          <button id="nextButton" class="dialog-button primary" type="button">下一關</button>
+        </div>
+      </div>
+    </dialog>
+
+    <script src="./app.js?v=7" type="module"></script>
+  </body>
+</html>
