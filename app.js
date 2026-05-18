@@ -1,4 +1,4 @@
-const STORAGE_KEY = "tube-sort-lab-save-v1";
+const STORAGE_KEY = "tube-sort-lab-save-v2";
 const CAPACITY = 4;
 
 const CHEMISTRY = {
@@ -167,11 +167,11 @@ const FALLBACK_LEVELS = [
     "id": 6,
     "name": "第 6 關",
     "extraEmptyTubes": 1,
-    "notes": "依使用者截圖建立。hidden=true 會先顯示問號；type=unknown 表示截圖尚未揭露，需補資料後才能完整遊玩。",
+    "notes": "依使用者截圖建立。hidden=true 會先顯示問號，當該格成為最上層時自動翻開。",
     "tubes": [
       [
         {
-          "type": "unknown",
+          "type": "bolt",
           "hidden": true
         },
         {
@@ -216,7 +216,7 @@ const FALLBACK_LEVELS = [
       ],
       [
         {
-          "type": "unknown",
+          "type": "drop",
           "hidden": true
         },
         {
@@ -261,7 +261,7 @@ const FALLBACK_LEVELS = [
       ],
       [
         {
-          "type": "unknown",
+          "type": "triangle",
           "hidden": true
         },
         {
@@ -276,7 +276,7 @@ const FALLBACK_LEVELS = [
       ],
       [
         {
-          "type": "bolt",
+          "type": "diamond",
           "hidden": true
         },
         {
@@ -399,7 +399,7 @@ function getRequestedLevelIndex() {
 
 async function loadLevels() {
   try {
-    const response = await fetch("./levels.json", { cache: "no-cache" });
+    const response = await fetch("./levels.json?v=14", { cache: "reload" });
     if (!response.ok) throw new Error("levels unavailable");
     const data = await response.json();
     return data.levels?.length ? data.levels : FALLBACK_LEVELS;
