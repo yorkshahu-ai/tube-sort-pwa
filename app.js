@@ -17,14 +17,323 @@ const CHEMISTRY = {
 
 const FALLBACK_LEVELS = [
   {
-    id: 1,
-    name: "第 1 關",
-    extraEmptyTubes: 1,
-    tubes: [
-      ["heart", "star", "bolt", "drop"],
-      ["star", "heart", "drop", "bolt"],
-      ["bolt", "drop", "star", "heart"],
-      ["drop", "bolt", "heart", "star"],
+    "id": 1,
+    "name": "第 1 關",
+    "extraEmptyTubes": 1,
+    "tubes": [
+      [
+        "heart",
+        "star",
+        "bolt",
+        "drop"
+      ],
+      [
+        "star",
+        "heart",
+        "drop",
+        "bolt"
+      ],
+      [
+        "bolt",
+        "drop",
+        "star",
+        "heart"
+      ],
+      [
+        "drop",
+        "bolt",
+        "heart",
+        "star"
+      ],
+      [],
+      []
+    ]
+  },
+  {
+    "id": 2,
+    "name": "第 2 關",
+    "extraEmptyTubes": 1,
+    "tubes": [
+      [
+        "line",
+        "plus",
+        "circle",
+        "diamond"
+      ],
+      [
+        "plus",
+        "square",
+        "line",
+        "triangle"
+      ],
+      [
+        "circle",
+        "diamond",
+        "square",
+        "plus"
+      ],
+      [
+        "diamond",
+        "triangle",
+        "plus",
+        "line"
+      ],
+      [
+        "square",
+        "line",
+        "triangle",
+        "circle"
+      ],
+      [
+        "triangle",
+        "circle",
+        "diamond",
+        "square"
+      ],
+      [],
+      []
+    ]
+  },
+  {
+    "id": 3,
+    "name": "第 3 關",
+    "extraEmptyTubes": 2,
+    "tubes": [
+      [
+        "heart",
+        "line",
+        "triangle",
+        "circle"
+      ],
+      [
+        "star",
+        "heart",
+        "diamond",
+        "plus"
+      ],
+      [
+        "bolt",
+        "square",
+        "star",
+        "line"
+      ],
+      [
+        "drop",
+        "triangle",
+        "bolt",
+        "heart"
+      ],
+      [
+        "line",
+        "circle",
+        "drop",
+        "square"
+      ],
+      [
+        "plus",
+        "diamond",
+        "circle",
+        "bolt"
+      ],
+      [
+        "diamond",
+        "drop",
+        "plus",
+        "triangle"
+      ],
+      [
+        "square",
+        "star",
+        "heart",
+        "drop"
+      ],
+      [
+        "circle",
+        "bolt",
+        "line",
+        "star"
+      ],
+      [
+        "triangle",
+        "plus",
+        "square",
+        "diamond"
+      ],
+      [],
+      []
+    ]
+  },
+  {
+    "id": 6,
+    "name": "第 6 關",
+    "extraEmptyTubes": 1,
+    "notes": "依使用者截圖建立。hidden=true 會先顯示問號；type=unknown 表示截圖尚未揭露，需補資料後才能完整遊玩。",
+    "tubes": [
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        {
+          "type": "drop",
+          "hidden": true
+        },
+        {
+          "type": "line",
+          "hidden": true
+        },
+        "bolt"
+      ],
+      [
+        {
+          "type": "plus",
+          "hidden": true
+        },
+        {
+          "type": "diamond",
+          "hidden": true
+        },
+        {
+          "type": "square",
+          "hidden": true
+        },
+        "star"
+      ],
+      [
+        {
+          "type": "bolt",
+          "hidden": true
+        },
+        {
+          "type": "circle",
+          "hidden": true
+        },
+        {
+          "type": "bars",
+          "hidden": true
+        },
+        "heart"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        {
+          "type": "plus",
+          "hidden": true
+        },
+        {
+          "type": "heart",
+          "hidden": true
+        },
+        "bolt"
+      ],
+      [
+        {
+          "type": "circle",
+          "hidden": true
+        },
+        {
+          "type": "heart",
+          "hidden": true
+        },
+        {
+          "type": "square",
+          "hidden": true
+        },
+        "heart"
+      ],
+      [
+        {
+          "type": "star",
+          "hidden": true
+        },
+        {
+          "type": "diamond",
+          "hidden": true
+        },
+        {
+          "type": "square",
+          "hidden": true
+        },
+        "triangle"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        {
+          "type": "plus",
+          "hidden": true
+        },
+        {
+          "type": "star",
+          "hidden": true
+        },
+        "drop"
+      ],
+      [
+        {
+          "type": "bolt",
+          "hidden": true
+        },
+        {
+          "type": "square",
+          "hidden": true
+        },
+        {
+          "type": "diamond",
+          "hidden": true
+        },
+        "bars"
+      ],
+      [
+        {
+          "type": "drop",
+          "hidden": true
+        },
+        {
+          "type": "line",
+          "hidden": true
+        },
+        {
+          "type": "bars",
+          "hidden": true
+        },
+        "line"
+      ],
+      [
+        {
+          "type": "star",
+          "hidden": true
+        },
+        {
+          "type": "circle",
+          "hidden": true
+        },
+        {
+          "type": "line",
+          "hidden": true
+        },
+        "triangle"
+      ],
+      [
+        {
+          "type": "plus",
+          "hidden": true
+        },
+        {
+          "type": "circle",
+          "hidden": true
+        },
+        {
+          "type": "bars",
+          "hidden": true
+        },
+        "triangle"
+      ],
       [],
       []
     ]
