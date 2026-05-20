@@ -528,6 +528,196 @@ const FALLBACK_LEVELS = [
       [],
       []
     ]
+  },
+  {
+    "id": 8,
+    "name": "第 8 關",
+    "extraEmptyTubes": 1,
+    "notes": "依使用者提供的第 8 關起始圖與部分揭露圖建立。type=unknown 表示尚未從截圖確認，補齊後才能提供保證可過關提示。",
+    "tubes": [
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "square"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "bars"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "square"
+      ],
+      [
+        {
+          "type": "drop",
+          "hidden": true
+        },
+        {
+          "type": "diamond",
+          "hidden": true
+        },
+        {
+          "type": "star",
+          "hidden": true
+        },
+        "drop"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "bolt"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "line"
+      ],
+      [
+        {
+          "type": "plus",
+          "hidden": true
+        },
+        {
+          "type": "diamond",
+          "hidden": true
+        },
+        {
+          "type": "triangle",
+          "hidden": true
+        },
+        "drop"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        {
+          "type": "star",
+          "hidden": true
+        },
+        "diamond"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "bars"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        {
+          "type": "circle",
+          "hidden": true
+        },
+        {
+          "type": "triangle",
+          "hidden": true
+        },
+        "pentagon"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        {
+          "type": "triangle",
+          "hidden": true
+        },
+        {
+          "type": "diamond",
+          "hidden": true
+        },
+        "pentagon"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "heart"
+      ],
+      [],
+      []
+    ]
   }
 ];
 
@@ -591,7 +781,7 @@ function getRequestedLevelIndex() {
 
 async function loadLevels() {
   try {
-    const response = await fetch("./levels.json?v=15", { cache: "reload" });
+    const response = await fetch("./levels.json?v=17", { cache: "reload" });
     if (!response.ok) throw new Error("levels unavailable");
     const data = await response.json();
     return data.levels?.length ? data.levels : FALLBACK_LEVELS;
@@ -883,7 +1073,8 @@ function addEmptyTube() {
 
 function showHint() {
   if (hasUnknownCells()) {
-    setMessage("第 6 關仍有未知格，補齊後才能提供保證可過關的提示。");
+    const level = levels[state.levelIndex];
+    setMessage(`${level.name || "目前關卡"}仍有未知格，補齊後才能提供保證可過關的提示。`);
     return;
   }
 
