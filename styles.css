@@ -48,7 +48,7 @@ button {
 .app-shell {
   position: relative;
   display: grid;
-  grid-template-rows: auto auto auto 1fr auto;
+  grid-template-rows: auto auto auto auto minmax(0, 1fr) auto;
   height: 100svh;
   width: min(100vw, 480px);
   margin: 0 auto;
@@ -176,6 +176,31 @@ h1 {
   text-shadow: 0 1px 2px #000;
 }
 
+.level-jump {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  min-height: 30px;
+  padding: 2px 0 4px;
+}
+
+.level-jump-button {
+  min-width: 42px;
+  min-height: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  background: rgba(8, 24, 36, 0.72);
+  color: #cfe5f0;
+  font-size: 0.8rem;
+  font-weight: 900;
+}
+
+.level-jump-button.active {
+  border-color: rgba(247, 207, 117, 0.75);
+  background: linear-gradient(#d89b3f, #935a20);
+  color: #fff;
+}
+
 .board {
   align-content: start;
   display: grid;
@@ -208,6 +233,14 @@ h1 {
 .board.dense .tube-button:last-child:nth-child(13) {
   grid-column: 3 / span 2;
   justify-self: center;
+}
+
+.board.dense .tube-button:nth-child(13):nth-last-child(2) {
+  grid-column: 3;
+}
+
+.board.dense .tube-button:nth-child(14):last-child {
+  grid-column: 4;
 }
 
 .board.dense .slot {
@@ -334,6 +367,7 @@ h1 {
 .chem-drop { background: linear-gradient(180deg, #d12ca8, #a80f7d); }
 .chem-line { background: linear-gradient(180deg, #f5a128, #d87813); }
 .chem-bars { background: linear-gradient(180deg, #9b54e5, #7333bf); }
+.chem-pentagon { background: linear-gradient(180deg, #f2a9df, #c678bc); }
 .chem-plus { background: linear-gradient(180deg, #249347, #136d32); }
 .chem-circle { background: linear-gradient(180deg, #b38a50, #80612f); }
 .chem-diamond { background: linear-gradient(180deg, #df554d, #b82c2a); }
@@ -468,7 +502,7 @@ h1 {
   }
 
   .app-shell {
-    grid-template-rows: auto auto auto minmax(0, 1fr) auto;
+    grid-template-rows: auto auto auto auto minmax(0, 1fr) auto;
     padding: max(6px, env(safe-area-inset-top)) 10px max(8px, env(safe-area-inset-bottom));
   }
 
@@ -537,13 +571,25 @@ h1 {
     line-height: 1.2;
   }
 
+  .level-jump {
+    min-height: 24px;
+    gap: 4px;
+    padding: 1px 0 2px;
+  }
+
+  .level-jump-button {
+    min-width: 34px;
+    min-height: 22px;
+    font-size: 0.7rem;
+  }
+
   .board {
     overflow: hidden;
   }
 
   .board.dense {
     --tube-width: clamp(34px, 10vw, 39px);
-    --tube-height: clamp(96px, 14.2dvh, 112px);
+    --tube-height: clamp(92px, 13.5dvh, 108px);
     gap: clamp(6px, 1.2dvh, 10px) 2px;
     padding: 2px 0 4px;
   }

@@ -8,6 +8,7 @@ const CHEMISTRY = {
   drop: { icon: "", label: "水滴", className: "chem-drop", symbolClass: "symbol-drop" },
   line: { icon: "▭", label: "橫線", className: "chem-line" },
   bars: { icon: "Ⅱ", label: "雙線", className: "chem-bars" },
+  pentagon: { icon: "⬟", label: "五邊形", className: "chem-pentagon" },
   plus: { icon: "＋", label: "加號", className: "chem-plus" },
   circle: { icon: "○", label: "圓形", className: "chem-circle" },
   diamond: { icon: "◇", label: "菱形", className: "chem-diamond" },
@@ -337,6 +338,196 @@ const FALLBACK_LEVELS = [
       [],
       []
     ]
+  },
+  {
+    "id": 7,
+    "name": "第 7 關",
+    "extraEmptyTubes": 1,
+    "notes": "依使用者提供的第 7 關完整位置圖建立。hidden=true 會先顯示問號，當該格成為最上層時自動翻開。",
+    "tubes": [
+      [
+        {
+          "type": "drop",
+          "hidden": true
+        },
+        {
+          "type": "bolt",
+          "hidden": true
+        },
+        {
+          "type": "square",
+          "hidden": true
+        },
+        "triangle"
+      ],
+      [
+        {
+          "type": "diamond",
+          "hidden": true
+        },
+        {
+          "type": "star",
+          "hidden": true
+        },
+        {
+          "type": "square",
+          "hidden": true
+        },
+        "heart"
+      ],
+      [
+        {
+          "type": "plus",
+          "hidden": true
+        },
+        {
+          "type": "diamond",
+          "hidden": true
+        },
+        {
+          "type": "pentagon",
+          "hidden": true
+        },
+        "line"
+      ],
+      [
+        {
+          "type": "star",
+          "hidden": true
+        },
+        {
+          "type": "heart",
+          "hidden": true
+        },
+        {
+          "type": "bolt",
+          "hidden": true
+        },
+        "line"
+      ],
+      [
+        {
+          "type": "circle",
+          "hidden": true
+        },
+        {
+          "type": "pentagon",
+          "hidden": true
+        },
+        {
+          "type": "plus",
+          "hidden": true
+        },
+        "line"
+      ],
+      [
+        {
+          "type": "square",
+          "hidden": true
+        },
+        {
+          "type": "bars",
+          "hidden": true
+        },
+        {
+          "type": "square",
+          "hidden": true
+        },
+        "triangle"
+      ],
+      [
+        {
+          "type": "star",
+          "hidden": true
+        },
+        {
+          "type": "bars",
+          "hidden": true
+        },
+        {
+          "type": "heart",
+          "hidden": true
+        },
+        "bolt"
+      ],
+      [
+        {
+          "type": "star",
+          "hidden": true
+        },
+        {
+          "type": "drop",
+          "hidden": true
+        },
+        {
+          "type": "circle",
+          "hidden": true
+        },
+        "drop"
+      ],
+      [
+        {
+          "type": "drop",
+          "hidden": true
+        },
+        {
+          "type": "triangle",
+          "hidden": true
+        },
+        {
+          "type": "plus",
+          "hidden": true
+        },
+        "diamond"
+      ],
+      [
+        {
+          "type": "circle",
+          "hidden": true
+        },
+        {
+          "type": "heart",
+          "hidden": true
+        },
+        {
+          "type": "bars",
+          "hidden": true
+        },
+        "bolt"
+      ],
+      [
+        {
+          "type": "diamond",
+          "hidden": true
+        },
+        {
+          "type": "pentagon",
+          "hidden": true
+        },
+        {
+          "type": "triangle",
+          "hidden": true
+        },
+        "circle"
+      ],
+      [
+        {
+          "type": "bars",
+          "hidden": true
+        },
+        {
+          "type": "plus",
+          "hidden": true
+        },
+        {
+          "type": "pentagon",
+          "hidden": true
+        },
+        "line"
+      ],
+      [],
+      []
+    ]
   }
 ];
 
@@ -346,6 +537,7 @@ const moveCount = document.querySelector("#moveCount");
 const emptyBottleCount = document.querySelector("#emptyBottleCount");
 const progressCount = document.querySelector("#progressCount");
 const message = document.querySelector("#message");
+const levelJump = document.querySelector("#levelJump");
 const hintButton = document.querySelector("#hintButton");
 const undoButton = document.querySelector("#undoButton");
 const addTubeButton = document.querySelector("#addTubeButton");
@@ -399,7 +591,7 @@ function getRequestedLevelIndex() {
 
 async function loadLevels() {
   try {
-    const response = await fetch("./levels.json?v=14", { cache: "reload" });
+    const response = await fetch("./levels.json?v=15", { cache: "reload" });
     if (!response.ok) throw new Error("levels unavailable");
     const data = await response.json();
     return data.levels?.length ? data.levels : FALLBACK_LEVELS;
@@ -483,6 +675,7 @@ function render() {
   undoButton.disabled = state.history.length === 0;
   addTubeButton.disabled = state.addedEmptyTubes >= (level.extraEmptyTubes ?? 1);
 
+  renderLevelJump();
   board.classList.toggle("dense", state.tubes.length > 10);
   board.innerHTML = "";
   state.tubes.forEach((tube, index) => {
@@ -530,6 +723,26 @@ function render() {
 
     button.append(tubeElement);
     board.append(button);
+  });
+}
+
+function renderLevelJump() {
+  levelJump.innerHTML = "";
+  levels.forEach((level, index) => {
+    const button = document.createElement("button");
+    button.className = "level-jump-button";
+    button.type = "button";
+    button.textContent = level.id;
+    button.setAttribute("aria-label", `切換到第 ${level.id} 關`);
+    if (index === state.levelIndex) button.classList.add("active");
+    button.addEventListener("click", () => {
+      if (index === state.levelIndex) return;
+      startLevel(index);
+      const url = new URL(window.location.href);
+      url.searchParams.set("level", String(level.id));
+      window.history.replaceState(null, "", url);
+    });
+    levelJump.append(button);
   });
 }
 

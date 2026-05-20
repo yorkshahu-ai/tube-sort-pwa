@@ -122,6 +122,88 @@
         [],
         []
       ]
+    },
+    {
+      "id": 7,
+      "name": "第 7 關",
+      "extraEmptyTubes": 1,
+      "notes": "依使用者提供的第 7 關完整位置圖建立。hidden=true 會先顯示問號，當該格成為最上層時自動翻開。",
+      "tubes": [
+        [
+          { "type": "drop", "hidden": true },
+          { "type": "bolt", "hidden": true },
+          { "type": "square", "hidden": true },
+          "triangle"
+        ],
+        [
+          { "type": "diamond", "hidden": true },
+          { "type": "star", "hidden": true },
+          { "type": "square", "hidden": true },
+          "heart"
+        ],
+        [
+          { "type": "plus", "hidden": true },
+          { "type": "diamond", "hidden": true },
+          { "type": "pentagon", "hidden": true },
+          "line"
+        ],
+        [
+          { "type": "star", "hidden": true },
+          { "type": "heart", "hidden": true },
+          { "type": "bolt", "hidden": true },
+          "line"
+        ],
+        [
+          { "type": "circle", "hidden": true },
+          { "type": "pentagon", "hidden": true },
+          { "type": "plus", "hidden": true },
+          "line"
+        ],
+        [
+          { "type": "square", "hidden": true },
+          { "type": "bars", "hidden": true },
+          { "type": "square", "hidden": true },
+          "triangle"
+        ],
+        [
+          { "type": "star", "hidden": true },
+          { "type": "bars", "hidden": true },
+          { "type": "heart", "hidden": true },
+          "bolt"
+        ],
+        [
+          { "type": "star", "hidden": true },
+          { "type": "drop", "hidden": true },
+          { "type": "circle", "hidden": true },
+          "drop"
+        ],
+        [
+          { "type": "drop", "hidden": true },
+          { "type": "triangle", "hidden": true },
+          { "type": "plus", "hidden": true },
+          "diamond"
+        ],
+        [
+          { "type": "circle", "hidden": true },
+          { "type": "heart", "hidden": true },
+          { "type": "bars", "hidden": true },
+          "bolt"
+        ],
+        [
+          { "type": "diamond", "hidden": true },
+          { "type": "pentagon", "hidden": true },
+          { "type": "triangle", "hidden": true },
+          "circle"
+        ],
+        [
+          { "type": "bars", "hidden": true },
+          { "type": "plus", "hidden": true },
+          { "type": "pentagon", "hidden": true },
+          "line"
+        ],
+        [],
+        []
+      ]
     }
   ]
 }

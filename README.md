@@ -27,7 +27,7 @@ tube-sort-pwa/
 - 只能倒到空試管或最上層相同圖案的試管。
 - 全部試管完成同圖案分類後過關。
 - 關卡資料放在 `levels.json`，可擴充多關卡。
-- 支援提示、撤回一步、重新開始、增加空瓶。
+- 支援提示、撤回一步、重新開始、增加空瓶、關卡跳轉。
 - 勝利彈窗與下一關。
 - 目前關卡、局面、步數與撤回紀錄會存到 `localStorage`。
 - `manifest.json` 與 `sw.js` 已加入，可離線遊玩並加入手機主畫面。
@@ -67,7 +67,7 @@ http://127.0.0.1:5173
 可用圖案代碼：
 
 ```text
-heart, star, bolt, drop, line, bars, plus, circle, diamond, square, triangle
+heart, star, bolt, drop, line, bars, pentagon, plus, circle, diamond, square, triangle
 ```
 
 每個非空試管最多 4 個元素，陣列順序是由下到上。
