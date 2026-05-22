@@ -530,6 +530,121 @@ const FALLBACK_LEVELS = [
     ]
   },
   {
+    "id": "7A",
+    "name": "第 7A 關",
+    "extraEmptyTubes": 1,
+    "notes": "依使用者提供的另一張第 7 關圖型建立。type=unknown 表示截圖中仍為問號，補齊後才能提供保證可過關提示。",
+    "tubes": [
+      [
+        "diamond",
+        "circle",
+        "plus",
+        "bolt"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "square",
+        "pentagon",
+        "circle"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "square",
+        "bolt",
+        "triangle"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "pentagon",
+        "drop",
+        "circle"
+      ],
+      [
+        "bars",
+        "heart",
+        "bolt",
+        "drop"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "bars",
+        "triangle",
+        "line"
+      ],
+      [
+        "star",
+        "pentagon",
+        "drop",
+        "square"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "heart",
+        "square",
+        "line"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "triangle",
+        "diamond"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "pentagon",
+        "heart"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "circle",
+        "plus",
+        "star"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "drop",
+        "line",
+        "diamond"
+      ],
+      [],
+      []
+    ]
+  },
+  {
     "id": 8,
     "name": "第 8 關",
     "extraEmptyTubes": 1,
@@ -545,22 +660,22 @@ const FALLBACK_LEVELS = [
           "hidden": true
         },
         {
-          "type": "unknown",
+          "type": "line",
           "hidden": true
         },
         "square"
       ],
       [
         {
-          "type": "unknown",
+          "type": "star",
           "hidden": true
         },
         {
-          "type": "unknown",
+          "type": "heart",
           "hidden": true
         },
         {
-          "type": "unknown",
+          "type": "plus",
           "hidden": true
         },
         "bars"
@@ -571,11 +686,11 @@ const FALLBACK_LEVELS = [
           "hidden": true
         },
         {
-          "type": "unknown",
+          "type": "circle",
           "hidden": true
         },
         {
-          "type": "unknown",
+          "type": "drop",
           "hidden": true
         },
         "square"
@@ -601,11 +716,11 @@ const FALLBACK_LEVELS = [
           "hidden": true
         },
         {
-          "type": "unknown",
+          "type": "heart",
           "hidden": true
         },
         {
-          "type": "unknown",
+          "type": "plus",
           "hidden": true
         },
         "bolt"
@@ -620,7 +735,7 @@ const FALLBACK_LEVELS = [
           "hidden": true
         },
         {
-          "type": "unknown",
+          "type": "heart",
           "hidden": true
         },
         "line"
@@ -661,11 +776,11 @@ const FALLBACK_LEVELS = [
           "hidden": true
         },
         {
-          "type": "unknown",
+          "type": "pentagon",
           "hidden": true
         },
         {
-          "type": "unknown",
+          "type": "star",
           "hidden": true
         },
         "bars"
@@ -687,7 +802,7 @@ const FALLBACK_LEVELS = [
       ],
       [
         {
-          "type": "unknown",
+          "type": "bolt",
           "hidden": true
         },
         {
@@ -706,11 +821,11 @@ const FALLBACK_LEVELS = [
           "hidden": true
         },
         {
-          "type": "unknown",
+          "type": "triangle",
           "hidden": true
         },
         {
-          "type": "unknown",
+          "type": "bars",
           "hidden": true
         },
         "heart"
@@ -774,14 +889,14 @@ async function init() {
 function getRequestedLevelIndex() {
   const levelParam = new URLSearchParams(window.location.search).get("level");
   if (!levelParam) return null;
-  const requestedId = Number(levelParam);
-  const foundIndex = levels.findIndex((level) => level.id === requestedId);
+  const requestedId = levelParam.trim().toLowerCase();
+  const foundIndex = levels.findIndex((level) => String(level.id).toLowerCase() === requestedId);
   return foundIndex >= 0 ? foundIndex : null;
 }
 
 async function loadLevels() {
   try {
-    const response = await fetch("./levels.json?v=17", { cache: "reload" });
+    const response = await fetch("./levels.json?v=21", { cache: "reload" });
     if (!response.ok) throw new Error("levels unavailable");
     const data = await response.json();
     return data.levels?.length ? data.levels : FALLBACK_LEVELS;

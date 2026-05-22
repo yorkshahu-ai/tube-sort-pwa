@@ -5,10 +5,30 @@
       "name": "第 1 關",
       "extraEmptyTubes": 1,
       "tubes": [
-        ["heart", "star", "bolt", "drop"],
-        ["star", "heart", "drop", "bolt"],
-        ["bolt", "drop", "star", "heart"],
-        ["drop", "bolt", "heart", "star"],
+        [
+          "heart",
+          "star",
+          "bolt",
+          "drop"
+        ],
+        [
+          "star",
+          "heart",
+          "drop",
+          "bolt"
+        ],
+        [
+          "bolt",
+          "drop",
+          "star",
+          "heart"
+        ],
+        [
+          "drop",
+          "bolt",
+          "heart",
+          "star"
+        ],
         [],
         []
       ]
@@ -18,12 +38,42 @@
       "name": "第 2 關",
       "extraEmptyTubes": 1,
       "tubes": [
-        ["line", "plus", "circle", "diamond"],
-        ["plus", "square", "line", "triangle"],
-        ["circle", "diamond", "square", "plus"],
-        ["diamond", "triangle", "plus", "line"],
-        ["square", "line", "triangle", "circle"],
-        ["triangle", "circle", "diamond", "square"],
+        [
+          "line",
+          "plus",
+          "circle",
+          "diamond"
+        ],
+        [
+          "plus",
+          "square",
+          "line",
+          "triangle"
+        ],
+        [
+          "circle",
+          "diamond",
+          "square",
+          "plus"
+        ],
+        [
+          "diamond",
+          "triangle",
+          "plus",
+          "line"
+        ],
+        [
+          "square",
+          "line",
+          "triangle",
+          "circle"
+        ],
+        [
+          "triangle",
+          "circle",
+          "diamond",
+          "square"
+        ],
         [],
         []
       ]
@@ -33,16 +83,66 @@
       "name": "第 3 關",
       "extraEmptyTubes": 2,
       "tubes": [
-        ["heart", "line", "triangle", "circle"],
-        ["star", "heart", "diamond", "plus"],
-        ["bolt", "square", "star", "line"],
-        ["drop", "triangle", "bolt", "heart"],
-        ["line", "circle", "drop", "square"],
-        ["plus", "diamond", "circle", "bolt"],
-        ["diamond", "drop", "plus", "triangle"],
-        ["square", "star", "heart", "drop"],
-        ["circle", "bolt", "line", "star"],
-        ["triangle", "plus", "square", "diamond"],
+        [
+          "heart",
+          "line",
+          "triangle",
+          "circle"
+        ],
+        [
+          "star",
+          "heart",
+          "diamond",
+          "plus"
+        ],
+        [
+          "bolt",
+          "square",
+          "star",
+          "line"
+        ],
+        [
+          "drop",
+          "triangle",
+          "bolt",
+          "heart"
+        ],
+        [
+          "line",
+          "circle",
+          "drop",
+          "square"
+        ],
+        [
+          "plus",
+          "diamond",
+          "circle",
+          "bolt"
+        ],
+        [
+          "diamond",
+          "drop",
+          "plus",
+          "triangle"
+        ],
+        [
+          "square",
+          "star",
+          "heart",
+          "drop"
+        ],
+        [
+          "circle",
+          "bolt",
+          "line",
+          "star"
+        ],
+        [
+          "triangle",
+          "plus",
+          "square",
+          "diamond"
+        ],
         [],
         []
       ]
@@ -54,69 +154,168 @@
       "notes": "依使用者截圖建立。hidden=true 會先顯示問號，當該格成為最上層時自動翻開。",
       "tubes": [
         [
-          { "type": "bolt", "hidden": true },
-          { "type": "drop", "hidden": true },
-          { "type": "line", "hidden": true },
+          {
+            "type": "bolt",
+            "hidden": true
+          },
+          {
+            "type": "drop",
+            "hidden": true
+          },
+          {
+            "type": "line",
+            "hidden": true
+          },
           "bolt"
         ],
         [
-          { "type": "plus", "hidden": true },
-          { "type": "diamond", "hidden": true },
-          { "type": "square", "hidden": true },
+          {
+            "type": "plus",
+            "hidden": true
+          },
+          {
+            "type": "diamond",
+            "hidden": true
+          },
+          {
+            "type": "square",
+            "hidden": true
+          },
           "star"
         ],
         [
-          { "type": "bolt", "hidden": true },
-          { "type": "circle", "hidden": true },
-          { "type": "bars", "hidden": true },
+          {
+            "type": "bolt",
+            "hidden": true
+          },
+          {
+            "type": "circle",
+            "hidden": true
+          },
+          {
+            "type": "bars",
+            "hidden": true
+          },
           "heart"
         ],
         [
-          { "type": "drop", "hidden": true },
-          { "type": "plus", "hidden": true },
-          { "type": "heart", "hidden": true },
+          {
+            "type": "drop",
+            "hidden": true
+          },
+          {
+            "type": "plus",
+            "hidden": true
+          },
+          {
+            "type": "heart",
+            "hidden": true
+          },
           "bolt"
         ],
         [
-          { "type": "circle", "hidden": true },
-          { "type": "heart", "hidden": true },
-          { "type": "square", "hidden": true },
+          {
+            "type": "circle",
+            "hidden": true
+          },
+          {
+            "type": "heart",
+            "hidden": true
+          },
+          {
+            "type": "square",
+            "hidden": true
+          },
           "heart"
         ],
         [
-          { "type": "star", "hidden": true },
-          { "type": "diamond", "hidden": true },
-          { "type": "square", "hidden": true },
+          {
+            "type": "star",
+            "hidden": true
+          },
+          {
+            "type": "diamond",
+            "hidden": true
+          },
+          {
+            "type": "square",
+            "hidden": true
+          },
           "triangle"
         ],
         [
-          { "type": "triangle", "hidden": true },
-          { "type": "plus", "hidden": true },
-          { "type": "star", "hidden": true },
+          {
+            "type": "triangle",
+            "hidden": true
+          },
+          {
+            "type": "plus",
+            "hidden": true
+          },
+          {
+            "type": "star",
+            "hidden": true
+          },
           "drop"
         ],
         [
-          { "type": "diamond", "hidden": true },
-          { "type": "square", "hidden": true },
-          { "type": "diamond", "hidden": true },
+          {
+            "type": "diamond",
+            "hidden": true
+          },
+          {
+            "type": "square",
+            "hidden": true
+          },
+          {
+            "type": "diamond",
+            "hidden": true
+          },
           "bars"
         ],
         [
-          { "type": "drop", "hidden": true },
-          { "type": "line", "hidden": true },
-          { "type": "bars", "hidden": true },
+          {
+            "type": "drop",
+            "hidden": true
+          },
+          {
+            "type": "line",
+            "hidden": true
+          },
+          {
+            "type": "bars",
+            "hidden": true
+          },
           "line"
         ],
         [
-          { "type": "star", "hidden": true },
-          { "type": "circle", "hidden": true },
-          { "type": "line", "hidden": true },
+          {
+            "type": "star",
+            "hidden": true
+          },
+          {
+            "type": "circle",
+            "hidden": true
+          },
+          {
+            "type": "line",
+            "hidden": true
+          },
           "triangle"
         ],
         [
-          { "type": "plus", "hidden": true },
-          { "type": "circle", "hidden": true },
-          { "type": "bars", "hidden": true },
+          {
+            "type": "plus",
+            "hidden": true
+          },
+          {
+            "type": "circle",
+            "hidden": true
+          },
+          {
+            "type": "bars",
+            "hidden": true
+          },
           "triangle"
         ],
         [],
@@ -130,76 +329,299 @@
       "notes": "依使用者提供的第 7 關完整位置圖建立。hidden=true 會先顯示問號，當該格成為最上層時自動翻開。",
       "tubes": [
         [
-          { "type": "drop", "hidden": true },
-          { "type": "bolt", "hidden": true },
-          { "type": "square", "hidden": true },
+          {
+            "type": "drop",
+            "hidden": true
+          },
+          {
+            "type": "bolt",
+            "hidden": true
+          },
+          {
+            "type": "square",
+            "hidden": true
+          },
           "triangle"
         ],
         [
-          { "type": "diamond", "hidden": true },
-          { "type": "star", "hidden": true },
-          { "type": "square", "hidden": true },
+          {
+            "type": "diamond",
+            "hidden": true
+          },
+          {
+            "type": "star",
+            "hidden": true
+          },
+          {
+            "type": "square",
+            "hidden": true
+          },
           "heart"
         ],
         [
-          { "type": "plus", "hidden": true },
-          { "type": "diamond", "hidden": true },
-          { "type": "pentagon", "hidden": true },
+          {
+            "type": "plus",
+            "hidden": true
+          },
+          {
+            "type": "diamond",
+            "hidden": true
+          },
+          {
+            "type": "pentagon",
+            "hidden": true
+          },
           "line"
         ],
         [
-          { "type": "star", "hidden": true },
-          { "type": "heart", "hidden": true },
-          { "type": "bolt", "hidden": true },
+          {
+            "type": "star",
+            "hidden": true
+          },
+          {
+            "type": "heart",
+            "hidden": true
+          },
+          {
+            "type": "bolt",
+            "hidden": true
+          },
           "line"
         ],
         [
-          { "type": "circle", "hidden": true },
-          { "type": "pentagon", "hidden": true },
-          { "type": "plus", "hidden": true },
+          {
+            "type": "circle",
+            "hidden": true
+          },
+          {
+            "type": "pentagon",
+            "hidden": true
+          },
+          {
+            "type": "plus",
+            "hidden": true
+          },
           "line"
         ],
         [
-          { "type": "square", "hidden": true },
-          { "type": "bars", "hidden": true },
-          { "type": "square", "hidden": true },
+          {
+            "type": "square",
+            "hidden": true
+          },
+          {
+            "type": "bars",
+            "hidden": true
+          },
+          {
+            "type": "square",
+            "hidden": true
+          },
           "triangle"
         ],
         [
-          { "type": "star", "hidden": true },
-          { "type": "bars", "hidden": true },
-          { "type": "heart", "hidden": true },
+          {
+            "type": "star",
+            "hidden": true
+          },
+          {
+            "type": "bars",
+            "hidden": true
+          },
+          {
+            "type": "heart",
+            "hidden": true
+          },
           "bolt"
         ],
         [
-          { "type": "star", "hidden": true },
-          { "type": "drop", "hidden": true },
-          { "type": "circle", "hidden": true },
+          {
+            "type": "star",
+            "hidden": true
+          },
+          {
+            "type": "drop",
+            "hidden": true
+          },
+          {
+            "type": "circle",
+            "hidden": true
+          },
           "drop"
         ],
         [
-          { "type": "drop", "hidden": true },
-          { "type": "triangle", "hidden": true },
-          { "type": "plus", "hidden": true },
+          {
+            "type": "drop",
+            "hidden": true
+          },
+          {
+            "type": "triangle",
+            "hidden": true
+          },
+          {
+            "type": "plus",
+            "hidden": true
+          },
           "diamond"
         ],
         [
-          { "type": "circle", "hidden": true },
-          { "type": "heart", "hidden": true },
-          { "type": "bars", "hidden": true },
+          {
+            "type": "circle",
+            "hidden": true
+          },
+          {
+            "type": "heart",
+            "hidden": true
+          },
+          {
+            "type": "bars",
+            "hidden": true
+          },
           "bolt"
         ],
         [
-          { "type": "diamond", "hidden": true },
-          { "type": "pentagon", "hidden": true },
-          { "type": "triangle", "hidden": true },
+          {
+            "type": "diamond",
+            "hidden": true
+          },
+          {
+            "type": "pentagon",
+            "hidden": true
+          },
+          {
+            "type": "triangle",
+            "hidden": true
+          },
           "circle"
         ],
         [
-          { "type": "bars", "hidden": true },
-          { "type": "plus", "hidden": true },
-          { "type": "pentagon", "hidden": true },
+          {
+            "type": "bars",
+            "hidden": true
+          },
+          {
+            "type": "plus",
+            "hidden": true
+          },
+          {
+            "type": "pentagon",
+            "hidden": true
+          },
           "line"
+        ],
+        [],
+        []
+      ]
+    },
+    {
+      "id": "7A",
+      "name": "第 7A 關",
+      "extraEmptyTubes": 1,
+      "notes": "依使用者提供的另一張第 7 關圖型建立。type=unknown 表示截圖中仍為問號，補齊後才能提供保證可過關提示。",
+      "tubes": [
+        [
+          "diamond",
+          "circle",
+          "plus",
+          "bolt"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "square",
+          "pentagon",
+          "circle"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "square",
+          "bolt",
+          "triangle"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "pentagon",
+          "drop",
+          "circle"
+        ],
+        [
+          "bars",
+          "heart",
+          "bolt",
+          "drop"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "bars",
+          "triangle",
+          "line"
+        ],
+        [
+          "star",
+          "pentagon",
+          "drop",
+          "square"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "heart",
+          "square",
+          "line"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "triangle",
+          "diamond"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "pentagon",
+          "heart"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "circle",
+          "plus",
+          "star"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "drop",
+          "line",
+          "diamond"
         ],
         [],
         []
@@ -212,75 +634,183 @@
       "notes": "依使用者提供的第 8 關起始圖與部分揭露圖建立。type=unknown 表示尚未從截圖確認，補齊後才能提供保證可過關提示。",
       "tubes": [
         [
-          { "type": "unknown", "hidden": true },
-          { "type": "unknown", "hidden": true },
-          { "type": "unknown", "hidden": true },
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          {
+            "type": "line",
+            "hidden": true
+          },
           "square"
         ],
         [
-          { "type": "unknown", "hidden": true },
-          { "type": "unknown", "hidden": true },
-          { "type": "unknown", "hidden": true },
+          {
+            "type": "star",
+            "hidden": true
+          },
+          {
+            "type": "heart",
+            "hidden": true
+          },
+          {
+            "type": "plus",
+            "hidden": true
+          },
           "bars"
         ],
         [
-          { "type": "unknown", "hidden": true },
-          { "type": "unknown", "hidden": true },
-          { "type": "unknown", "hidden": true },
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          {
+            "type": "circle",
+            "hidden": true
+          },
+          {
+            "type": "drop",
+            "hidden": true
+          },
           "square"
         ],
         [
-          { "type": "drop", "hidden": true },
-          { "type": "diamond", "hidden": true },
-          { "type": "star", "hidden": true },
+          {
+            "type": "drop",
+            "hidden": true
+          },
+          {
+            "type": "diamond",
+            "hidden": true
+          },
+          {
+            "type": "star",
+            "hidden": true
+          },
           "drop"
         ],
         [
-          { "type": "unknown", "hidden": true },
-          { "type": "unknown", "hidden": true },
-          { "type": "unknown", "hidden": true },
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          {
+            "type": "heart",
+            "hidden": true
+          },
+          {
+            "type": "plus",
+            "hidden": true
+          },
           "bolt"
         ],
         [
-          { "type": "unknown", "hidden": true },
-          { "type": "unknown", "hidden": true },
-          { "type": "unknown", "hidden": true },
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          {
+            "type": "heart",
+            "hidden": true
+          },
           "line"
         ],
         [
-          { "type": "plus", "hidden": true },
-          { "type": "diamond", "hidden": true },
-          { "type": "triangle", "hidden": true },
+          {
+            "type": "plus",
+            "hidden": true
+          },
+          {
+            "type": "diamond",
+            "hidden": true
+          },
+          {
+            "type": "triangle",
+            "hidden": true
+          },
           "drop"
         ],
         [
-          { "type": "unknown", "hidden": true },
-          { "type": "unknown", "hidden": true },
-          { "type": "star", "hidden": true },
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          {
+            "type": "star",
+            "hidden": true
+          },
           "diamond"
         ],
         [
-          { "type": "unknown", "hidden": true },
-          { "type": "unknown", "hidden": true },
-          { "type": "unknown", "hidden": true },
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          {
+            "type": "pentagon",
+            "hidden": true
+          },
+          {
+            "type": "star",
+            "hidden": true
+          },
           "bars"
         ],
         [
-          { "type": "unknown", "hidden": true },
-          { "type": "circle", "hidden": true },
-          { "type": "triangle", "hidden": true },
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          {
+            "type": "circle",
+            "hidden": true
+          },
+          {
+            "type": "triangle",
+            "hidden": true
+          },
           "pentagon"
         ],
         [
-          { "type": "unknown", "hidden": true },
-          { "type": "triangle", "hidden": true },
-          { "type": "diamond", "hidden": true },
+          {
+            "type": "bolt",
+            "hidden": true
+          },
+          {
+            "type": "triangle",
+            "hidden": true
+          },
+          {
+            "type": "diamond",
+            "hidden": true
+          },
           "pentagon"
         ],
         [
-          { "type": "unknown", "hidden": true },
-          { "type": "unknown", "hidden": true },
-          { "type": "unknown", "hidden": true },
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          {
+            "type": "triangle",
+            "hidden": true
+          },
+          {
+            "type": "bars",
+            "hidden": true
+          },
           "heart"
         ],
         [],
