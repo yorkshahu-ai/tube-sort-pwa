@@ -590,10 +590,7 @@ const FALLBACK_LEVELS = [
         "square"
       ],
       [
-        {
-          "type": "unknown",
-          "hidden": true
-        },
+        "diamond",
         "heart",
         "square",
         "line"
@@ -603,39 +600,24 @@ const FALLBACK_LEVELS = [
           "type": "unknown",
           "hidden": true
         },
-        {
-          "type": "unknown",
-          "hidden": true
-        },
+        "bolt",
         "triangle",
         "diamond"
       ],
       [
-        {
-          "type": "unknown",
-          "hidden": true
-        },
-        {
-          "type": "unknown",
-          "hidden": true
-        },
+        "bars",
+        "line",
         "pentagon",
         "heart"
       ],
       [
-        {
-          "type": "unknown",
-          "hidden": true
-        },
+        "plus",
         "circle",
         "plus",
         "star"
       ],
       [
-        {
-          "type": "unknown",
-          "hidden": true
-        },
+        "star",
         "drop",
         "line",
         "diamond"
@@ -648,15 +630,15 @@ const FALLBACK_LEVELS = [
     "id": 8,
     "name": "第 8 關",
     "extraEmptyTubes": 1,
-    "notes": "依使用者提供的第 8 關起始圖與部分揭露圖建立。type=unknown 表示尚未從截圖確認，補齊後才能提供保證可過關提示。",
+    "notes": "第 8 關已依截圖與圖案數量補齊；hidden=true 會先顯示問號，當該格成為最上層時自動翻開。",
     "tubes": [
       [
         {
-          "type": "unknown",
+          "type": "bolt",
           "hidden": true
         },
         {
-          "type": "unknown",
+          "type": "bolt",
           "hidden": true
         },
         {
@@ -682,7 +664,7 @@ const FALLBACK_LEVELS = [
       ],
       [
         {
-          "type": "unknown",
+          "type": "line",
           "hidden": true
         },
         {
@@ -712,7 +694,7 @@ const FALLBACK_LEVELS = [
       ],
       [
         {
-          "type": "unknown",
+          "type": "line",
           "hidden": true
         },
         {
@@ -727,11 +709,11 @@ const FALLBACK_LEVELS = [
       ],
       [
         {
-          "type": "unknown",
+          "type": "bars",
           "hidden": true
         },
         {
-          "type": "unknown",
+          "type": "pentagon",
           "hidden": true
         },
         {
@@ -757,11 +739,11 @@ const FALLBACK_LEVELS = [
       ],
       [
         {
-          "type": "unknown",
+          "type": "plus",
           "hidden": true
         },
         {
-          "type": "unknown",
+          "type": "circle",
           "hidden": true
         },
         {
@@ -772,7 +754,7 @@ const FALLBACK_LEVELS = [
       ],
       [
         {
-          "type": "unknown",
+          "type": "circle",
           "hidden": true
         },
         {
@@ -787,7 +769,7 @@ const FALLBACK_LEVELS = [
       ],
       [
         {
-          "type": "unknown",
+          "type": "square",
           "hidden": true
         },
         {
@@ -817,7 +799,7 @@ const FALLBACK_LEVELS = [
       ],
       [
         {
-          "type": "unknown",
+          "type": "square",
           "hidden": true
         },
         {
@@ -896,7 +878,7 @@ function getRequestedLevelIndex() {
 
 async function loadLevels() {
   try {
-    const response = await fetch("./levels.json?v=21", { cache: "reload" });
+    const response = await fetch("./levels.json?v=23", { cache: "reload" });
     if (!response.ok) throw new Error("levels unavailable");
     const data = await response.json();
     return data.levels?.length ? data.levels : FALLBACK_LEVELS;
