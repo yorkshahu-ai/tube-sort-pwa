@@ -525,19 +525,13 @@
           "bolt"
         ],
         [
-          {
-            "type": "unknown",
-            "hidden": true
-          },
+          "plus",
           "square",
           "pentagon",
           "circle"
         ],
         [
-          {
-            "type": "unknown",
-            "hidden": true
-          },
+          "heart",
           "square",
           "bolt",
           "triangle"

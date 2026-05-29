@@ -542,19 +542,13 @@ const FALLBACK_LEVELS = [
         "bolt"
       ],
       [
-        {
-          "type": "unknown",
-          "hidden": true
-        },
+        "plus",
         "square",
         "pentagon",
         "circle"
       ],
       [
-        {
-          "type": "unknown",
-          "hidden": true
-        },
+        "heart",
         "square",
         "bolt",
         "triangle"
@@ -827,6 +821,7 @@ const message = document.querySelector("#message");
 const levelJump = document.querySelector("#levelJump");
 const hintButton = document.querySelector("#hintButton");
 const undoButton = document.querySelector("#undoButton");
+const redoButton = document.querySelector("#redoButton");
 const addTubeButton = document.querySelector("#addTubeButton");
 const restartButton = document.querySelector("#restartButton");
 const replayButton = document.querySelector("#replayButton");
@@ -841,9 +836,11 @@ let state = {
   tubes: [],
   selectedTube: null,
   history: [],
+  redoStack: [],
   moves: 0,
   addedEmptyTubes: 0,
   hint: null,
+  lastMove: null,
   patternMode: true
 };
 
@@ -878,7 +875,7 @@ function getRequestedLevelIndex() {
 
 async function loadLevels() {
   try {
-    const response = await fetch("./levels.json?v=23", { cache: "reload" });
+    const response = await fetch("./levels.json?v=26", { cache: "reload" });
     if (!response.ok) throw new Error("levels unavailable");
     const data = await response.json();
     return data.levels?.length ? data.levels : FALLBACK_LEVELS;
@@ -890,6 +887,7 @@ async function loadLevels() {
 function bindEvents() {
   hintButton.addEventListener("click", showHint);
   undoButton.addEventListener("click", undo);
+  redoButton.addEventListener("click", redo);
   addTubeButton.addEventListener("click", addEmptyTube);
   restartButton.addEventListener("click", () => startLevel(state.levelIndex));
   replayButton.addEventListener("click", () => {
@@ -914,9 +912,11 @@ function startLevel(levelIndex, shouldSave = true) {
     tubes: revealTopCells(cloneTubes(level.tubes)),
     selectedTube: null,
     history: [],
+    redoStack: [],
     moves: 0,
     addedEmptyTubes: 0,
     hint: null,
+    lastMove: null,
     patternMode: state.patternMode
   };
   if (shouldSave) saveState();
@@ -925,6 +925,26 @@ function startLevel(levelIndex, shouldSave = true) {
 
 function cloneTubes(tubes) {
   return tubes.map((tube) => tube.map(normalizeCell));
+}
+
+function cloneMove(move) {
+  return move ? { ...move } : null;
+}
+
+function createHistoryEntry() {
+  return {
+    tubes: cloneTubes(state.tubes),
+    moves: state.moves,
+    addedEmptyTubes: state.addedEmptyTubes,
+    lastMove: cloneMove(state.lastMove)
+  };
+}
+
+function restoreHistoryEntry(entry) {
+  state.tubes = revealTopCells(cloneTubes(entry.tubes));
+  state.moves = entry.moves;
+  state.addedEmptyTubes = entry.addedEmptyTubes;
+  state.lastMove = cloneMove(entry.lastMove);
 }
 
 function normalizeCell(cell) {
@@ -960,6 +980,7 @@ function render() {
   progressCount.textContent = `${getProgress()}%`;
   patternToggle.checked = state.patternMode;
   undoButton.disabled = state.history.length === 0;
+  redoButton.disabled = state.redoStack.length === 0;
   addTubeButton.disabled = state.addedEmptyTubes >= (level.extraEmptyTubes ?? 1);
 
   renderLevelJump();
@@ -1079,7 +1100,7 @@ function selectTube(index) {
   render();
 
   if (isSolved()) {
-    setTimeout(showWinDialog, 220);
+    setMessage(`${levels[state.levelIndex].name || "目前關卡"}完成，共移動 ${state.moves} 步。`);
   }
 }
 
@@ -1089,16 +1110,14 @@ function moveChemicals(from, to) {
   const validation = canMove(source, target);
   if (!validation.ok) return validation;
 
-  state.history.push({
-    tubes: cloneTubes(state.tubes),
-    moves: state.moves,
-    addedEmptyTubes: state.addedEmptyTubes
-  });
+  state.history.push(createHistoryEntry());
+  state.redoStack = [];
 
   const count = Math.min(validation.runLength, CAPACITY - target.length);
   const moved = source.splice(source.length - count, count).map((cell) => ({ ...normalizeCell(cell), hidden: false }));
   target.push(...moved);
   state.tubes = revealTopCells(state.tubes);
+  state.lastMove = { from, to, chemical: validation.chemical, count };
   return { ok: true, count, chemical: validation.chemical };
 }
 
@@ -1136,12 +1155,26 @@ function undo() {
     setMessage("目前沒有可撤回的步驟。");
     return;
   }
-  state.tubes = revealTopCells(cloneTubes(previous.tubes));
-  state.moves = previous.moves;
-  state.addedEmptyTubes = previous.addedEmptyTubes;
+  state.redoStack.push(createHistoryEntry());
+  restoreHistoryEntry(previous);
   state.selectedTube = null;
   state.hint = null;
   setMessage("已撤回一步。");
+  saveState();
+  render();
+}
+
+function redo() {
+  const next = state.redoStack.pop();
+  if (!next) {
+    setMessage("目前沒有可重做的步驟。");
+    return;
+  }
+  state.history.push(createHistoryEntry());
+  restoreHistoryEntry(next);
+  state.selectedTube = null;
+  state.hint = null;
+  setMessage("已重做一步。");
   saveState();
   render();
 }
@@ -1154,11 +1187,8 @@ function addEmptyTube() {
     return;
   }
 
-  state.history.push({
-    tubes: cloneTubes(state.tubes),
-    moves: state.moves,
-    addedEmptyTubes: state.addedEmptyTubes
-  });
+  state.history.push(createHistoryEntry());
+  state.redoStack = [];
   state.tubes.push([]);
   state.addedEmptyTubes += 1;
   state.selectedTube = null;
@@ -1187,24 +1217,24 @@ function showHint() {
 }
 
 function findHint() {
-  return solveNextMove(state.tubes);
+  return solveNextMove(state.tubes, state.lastMove);
 }
 
 function hasUnknownCells() {
   return state.tubes.some((tube) => tube.some((cell) => cellType(cell) === "unknown"));
 }
 
-function solveNextMove(tubes) {
+function solveNextMove(tubes, blockedReverseMove = null) {
   const start = tubes.map((tube) => tube.map(cellType));
   const seen = new Set([serializeTubes(start)]);
-  const stack = [{ tubes: start, firstMove: null }];
+  const stack = [{ tubes: start, firstMove: null, previousMove: blockedReverseMove }];
   const maxStates = 250000;
 
   while (stack.length && seen.size < maxStates) {
     const current = stack.pop();
     if (isSolvedTypes(current.tubes)) return current.firstMove;
 
-    const moves = getSolvingMoves(current.tubes);
+    const moves = getSolvingMoves(current.tubes, current.previousMove);
     for (const move of moves) {
       const next = applyTypeMove(current.tubes, move);
       const key = serializeTubes(next);
@@ -1212,7 +1242,8 @@ function solveNextMove(tubes) {
       seen.add(key);
       stack.push({
         tubes: next,
-        firstMove: current.firstMove || move
+        firstMove: current.firstMove || move,
+        previousMove: move
       });
     }
   }
@@ -1232,13 +1263,14 @@ function isCompleteTypeTube(tube) {
   return tube.length === CAPACITY && tube.every((type) => type === tube[0]);
 }
 
-function getSolvingMoves(tubes) {
+function getSolvingMoves(tubes, previousMove = null) {
   const moves = [];
   for (let from = 0; from < tubes.length; from += 1) {
     for (let to = 0; to < tubes.length; to += 1) {
       if (from === to) continue;
       const check = canMoveTypes(tubes[from], tubes[to]);
       if (!check) continue;
+      if (isReverseMove({ from, to, chemical: check.chemical }, previousMove)) continue;
       if (isCompleteTypeTube(tubes[from]) && tubes[to].length === 0) continue;
       moves.push({
         from,
@@ -1261,6 +1293,13 @@ function getSolvingMoves(tubes) {
     return b.runLength - a.runLength;
   });
   return moves;
+}
+
+function isReverseMove(move, previousMove) {
+  return Boolean(previousMove) &&
+    move.from === previousMove.to &&
+    move.to === previousMove.from &&
+    move.chemical === previousMove.chemical;
 }
 
 function canMoveTypes(source, target) {
@@ -1337,8 +1376,10 @@ function saveState() {
       levelIndex: state.levelIndex,
       tubes: state.tubes,
       history: state.history.slice(-80),
+      redoStack: state.redoStack.slice(-80),
       moves: state.moves,
       addedEmptyTubes: state.addedEmptyTubes,
+      lastMove: cloneMove(state.lastMove),
       patternMode: state.patternMode
     }));
   } catch {
@@ -1351,6 +1392,13 @@ function loadSave() {
     const saved = JSON.parse(window.localStorage?.getItem(STORAGE_KEY));
     if (!saved || !Array.isArray(saved.tubes)) return null;
     saved.tubes = revealTopCells(cloneTubes(saved.tubes));
+    saved.lastMove = cloneMove(saved.lastMove);
+    saved.history = Array.isArray(saved.history)
+      ? saved.history.map((entry) => ({ ...entry, lastMove: cloneMove(entry.lastMove) }))
+      : [];
+    saved.redoStack = Array.isArray(saved.redoStack)
+      ? saved.redoStack.map((entry) => ({ ...entry, lastMove: cloneMove(entry.lastMove) }))
+      : [];
     return saved;
   } catch {
     return null;

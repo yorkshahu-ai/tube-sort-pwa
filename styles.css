@@ -376,7 +376,7 @@ h1 {
 
 .controls {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 8px;
   padding-top: 6px;
 }
@@ -639,7 +639,7 @@ h1 {
   .control-button {
     min-height: 42px;
     gap: 3px;
-    font-size: clamp(0.78rem, 3.7vw, 0.92rem);
+    font-size: clamp(0.68rem, 3.2vw, 0.82rem);
   }
 
   .control-button span:first-child {
