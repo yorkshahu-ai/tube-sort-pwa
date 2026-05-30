@@ -516,7 +516,7 @@
       "id": "7A",
       "name": "第 7A 關",
       "extraEmptyTubes": 1,
-      "notes": "依使用者提供的另一張第 7 關圖型建立。type=unknown 表示截圖中仍為問號，補齊後才能提供保證可過關提示。",
+      "notes": "第 7A 關已依使用者截圖補齊；hidden=true 會先顯示問號，當該格成為最上層時自動翻開。",
       "tubes": [
         [
           "diamond",
@@ -537,10 +537,7 @@
           "triangle"
         ],
         [
-          {
-            "type": "unknown",
-            "hidden": true
-          },
+          "triangle",
           "pentagon",
           "drop",
           "circle"
@@ -552,10 +549,7 @@
           "drop"
         ],
         [
-          {
-            "type": "unknown",
-            "hidden": true
-          },
+          "star",
           "bars",
           "triangle",
           "line"
@@ -573,10 +567,7 @@
           "line"
         ],
         [
-          {
-            "type": "unknown",
-            "hidden": true
-          },
+          "bars",
           "bolt",
           "triangle",
           "diamond"

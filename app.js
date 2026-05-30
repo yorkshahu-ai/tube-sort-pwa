@@ -533,7 +533,7 @@ const FALLBACK_LEVELS = [
     "id": "7A",
     "name": "第 7A 關",
     "extraEmptyTubes": 1,
-    "notes": "依使用者提供的另一張第 7 關圖型建立。type=unknown 表示截圖中仍為問號，補齊後才能提供保證可過關提示。",
+    "notes": "第 7A 關已依使用者截圖補齊；hidden=true 會先顯示問號，當該格成為最上層時自動翻開。",
     "tubes": [
       [
         "diamond",
@@ -554,10 +554,7 @@ const FALLBACK_LEVELS = [
         "triangle"
       ],
       [
-        {
-          "type": "unknown",
-          "hidden": true
-        },
+        "triangle",
         "pentagon",
         "drop",
         "circle"
@@ -569,10 +566,7 @@ const FALLBACK_LEVELS = [
         "drop"
       ],
       [
-        {
-          "type": "unknown",
-          "hidden": true
-        },
+        "star",
         "bars",
         "triangle",
         "line"
@@ -590,10 +584,7 @@ const FALLBACK_LEVELS = [
         "line"
       ],
       [
-        {
-          "type": "unknown",
-          "hidden": true
-        },
+        "bars",
         "bolt",
         "triangle",
         "diamond"
@@ -875,7 +866,7 @@ function getRequestedLevelIndex() {
 
 async function loadLevels() {
   try {
-    const response = await fetch("./levels.json?v=26", { cache: "reload" });
+    const response = await fetch("./levels.json?v=28", { cache: "reload" });
     if (!response.ok) throw new Error("levels unavailable");
     const data = await response.json();
     return data.levels?.length ? data.levels : FALLBACK_LEVELS;
@@ -1263,6 +1254,10 @@ function isCompleteTypeTube(tube) {
   return tube.length === CAPACITY && tube.every((type) => type === tube[0]);
 }
 
+function isSingleColorTypeTube(tube) {
+  return tube.length > 0 && tube.every((type) => type === tube[0]);
+}
+
 function getSolvingMoves(tubes, previousMove = null) {
   const moves = [];
   for (let from = 0; from < tubes.length; from += 1) {
@@ -1272,6 +1267,7 @@ function getSolvingMoves(tubes, previousMove = null) {
       if (!check) continue;
       if (isReverseMove({ from, to, chemical: check.chemical }, previousMove)) continue;
       if (isCompleteTypeTube(tubes[from]) && tubes[to].length === 0) continue;
+      if (isSingleColorTypeTube(tubes[from]) && tubes[to].length === 0) continue;
       moves.push({
         from,
         to,
