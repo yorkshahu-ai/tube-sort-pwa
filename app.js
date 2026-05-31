@@ -612,6 +612,88 @@ const FALLBACK_LEVELS = [
     ]
   },
   {
+    "id": "7B",
+    "name": "第 7B 關",
+    "extraEmptyTubes": 1,
+    "notes": "依使用者提供的第 7B 關截圖建立；第 8 支最底層問號依使用者說明補為紫色直條。",
+    "tubes": [
+      [
+        "line",
+        "pentagon",
+        "bolt",
+        "plus"
+      ],
+      [
+        "bolt",
+        "triangle",
+        "pentagon",
+        "bars"
+      ],
+      [
+        "square",
+        "diamond",
+        "circle",
+        "plus"
+      ],
+      [
+        "star",
+        "pentagon",
+        "heart",
+        "plus"
+      ],
+      [
+        "bolt",
+        "star",
+        "heart",
+        "drop"
+      ],
+      [
+        "circle",
+        "heart",
+        "circle",
+        "square"
+      ],
+      [
+        "bars",
+        "star",
+        "pentagon",
+        "triangle"
+      ],
+      [
+        "bars",
+        "line",
+        "drop",
+        "circle"
+      ],
+      [
+        "line",
+        "square",
+        "bolt",
+        "star"
+      ],
+      [
+        "bars",
+        "line",
+        "drop",
+        "diamond"
+      ],
+      [
+        "diamond",
+        "plus",
+        "square",
+        "triangle"
+      ],
+      [
+        "diamond",
+        "heart",
+        "drop",
+        "triangle"
+      ],
+      [],
+      []
+    ]
+  },
+  {
     "id": 8,
     "name": "第 8 關",
     "extraEmptyTubes": 1,
@@ -866,7 +948,7 @@ function getRequestedLevelIndex() {
 
 async function loadLevels() {
   try {
-    const response = await fetch("./levels.json?v=28", { cache: "reload" });
+    const response = await fetch("./levels.json?v=29", { cache: "reload" });
     if (!response.ok) throw new Error("levels unavailable");
     const data = await response.json();
     return data.levels?.length ? data.levels : FALLBACK_LEVELS;
