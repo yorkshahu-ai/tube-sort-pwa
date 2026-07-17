@@ -1216,7 +1216,7 @@ function getRequestedLevelIndex() {
 
 async function loadLevels() {
   try {
-    const response = await fetch("./levels.json?v=34", { cache: "reload" });
+    const response = await fetch("./levels.json?v=35", { cache: "reload" });
     if (!response.ok) throw new Error("levels unavailable");
     const data = await response.json();
     return data.levels?.length ? data.levels : FALLBACK_LEVELS;
@@ -1326,6 +1326,7 @@ function render() {
 
   renderLevelJump();
   board.classList.toggle("dense", state.tubes.length > 10);
+  board.classList.toggle("extra-dense", state.tubes.length > 14);
   board.innerHTML = "";
   state.tubes.forEach((tube, index) => {
     const button = document.createElement("button");
