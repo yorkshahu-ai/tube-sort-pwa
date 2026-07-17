@@ -699,17 +699,11 @@ const FALLBACK_LEVELS = [
     "extraEmptyTubes": 1,
     "notes": "依使用者提供的第 7C 關截圖建立；type=unknown 表示截圖中仍為問號，補齊後才能提供保證可過關提示。",
     "tubes": [
-      [
-        {
-          "type": "unknown",
-          "hidden": true
-        },
-        {
-          "type": "unknown",
-          "hidden": true
-        },
-        "line",
-        "bolt"
+        [
+          "bolt",
+          "drop",
+          "line",
+          "bolt"
       ],
       [
         "plus",
@@ -1036,7 +1030,7 @@ function getRequestedLevelIndex() {
 
 async function loadLevels() {
   try {
-    const response = await fetch("./levels.json?v=31", { cache: "reload" });
+    const response = await fetch("./levels.json?v=32", { cache: "reload" });
     if (!response.ok) throw new Error("levels unavailable");
     const data = await response.json();
     return data.levels?.length ? data.levels : FALLBACK_LEVELS;

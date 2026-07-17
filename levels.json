@@ -683,14 +683,8 @@
       "notes": "依使用者提供的第 7C 關截圖建立；type=unknown 表示截圖中仍為問號，補齊後才能提供保證可過關提示。",
       "tubes": [
         [
-          {
-            "type": "unknown",
-            "hidden": true
-          },
-          {
-            "type": "unknown",
-            "hidden": true
-          },
+          "bolt",
+          "drop",
           "line",
           "bolt"
         ],
