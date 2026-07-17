@@ -1017,6 +1017,121 @@
         [],
         []
       ]
+    },
+    {
+      "id": 9,
+      "name": "第 9 關",
+      "extraEmptyTubes": 1,
+      "notes": "依使用者提供的第 9 關截圖建立；type=unknown 表示截圖中仍為問號。",
+      "tubes": [
+        [
+          "line",
+          "bolt",
+          "triangle",
+          "pentagon"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "diamond",
+          "square"
+        ],
+        [
+          "plus",
+          "triangle",
+          "bolt",
+          "heart"
+        ],
+        [
+          "line",
+          "plus",
+          "drop",
+          "circle"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "pentagon",
+          "bars",
+          "star"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "drop",
+          "downTriangle"
+        ],
+        [
+          "diamond",
+          "pentagon",
+          "drop",
+          "heart"
+        ],
+        [
+          "star",
+          "diamond",
+          "heart",
+          "line"
+        ],
+        [
+          "bars",
+          "bolt",
+          "square",
+          "triangle"
+        ],
+        [
+          "line",
+          "triangle",
+          "bolt",
+          "pentagon"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "star",
+          "bars",
+          "square"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "plus",
+          "star",
+          "downTriangle"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "circle",
+          "heart"
+        ],
+        [],
+        []
+      ]
     }
   ]
 }

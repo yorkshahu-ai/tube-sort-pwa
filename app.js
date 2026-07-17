@@ -9,6 +9,7 @@ const CHEMISTRY = {
   line: { icon: "▭", label: "橫線", className: "chem-line" },
   bars: { icon: "Ⅱ", label: "雙線", className: "chem-bars" },
   pentagon: { icon: "⬟", label: "五邊形", className: "chem-pentagon" },
+  downTriangle: { icon: "▽", label: "倒三角形", className: "chem-down-triangle" },
   plus: { icon: "＋", label: "加號", className: "chem-plus" },
   circle: { icon: "○", label: "圓形", className: "chem-circle" },
   diamond: { icon: "◇", label: "菱形", className: "chem-diamond" },
@@ -699,11 +700,11 @@ const FALLBACK_LEVELS = [
     "extraEmptyTubes": 1,
     "notes": "依使用者提供的第 7C 關截圖建立；type=unknown 表示截圖中仍為問號，補齊後才能提供保證可過關提示。",
     "tubes": [
-        [
-          "bolt",
-          "drop",
-          "line",
-          "bolt"
+      [
+        "bolt",
+        "drop",
+        "line",
+        "bolt"
       ],
       [
         "plus",
@@ -723,11 +724,11 @@ const FALLBACK_LEVELS = [
         "heart",
         "bolt"
       ],
-        [
-          "circle",
-          "heart",
-          "square",
-          "heart"
+      [
+        "circle",
+        "heart",
+        "square",
+        "heart"
       ],
       [
         "star",
@@ -741,17 +742,17 @@ const FALLBACK_LEVELS = [
         "star",
         "drop"
       ],
-        [
-          "diamond",
-          "square",
-          "diamond",
-          "bars"
-        ],
-        [
-          "drop",
-          "line",
-          "bars",
-          "line"
+      [
+        "diamond",
+        "square",
+        "diamond",
+        "bars"
+      ],
+      [
+        "drop",
+        "line",
+        "bars",
+        "line"
       ],
       [
         "star",
@@ -1034,6 +1035,121 @@ const FALLBACK_LEVELS = [
       [],
       []
     ]
+  },
+  {
+    "id": 9,
+    "name": "第 9 關",
+    "extraEmptyTubes": 1,
+    "notes": "依使用者提供的第 9 關截圖建立；type=unknown 表示截圖中仍為問號。",
+    "tubes": [
+      [
+        "line",
+        "bolt",
+        "triangle",
+        "pentagon"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "diamond",
+        "square"
+      ],
+      [
+        "plus",
+        "triangle",
+        "bolt",
+        "heart"
+      ],
+      [
+        "line",
+        "plus",
+        "drop",
+        "circle"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "pentagon",
+        "bars",
+        "star"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "drop",
+        "downTriangle"
+      ],
+      [
+        "diamond",
+        "pentagon",
+        "drop",
+        "heart"
+      ],
+      [
+        "star",
+        "diamond",
+        "heart",
+        "line"
+      ],
+      [
+        "bars",
+        "bolt",
+        "square",
+        "triangle"
+      ],
+      [
+        "line",
+        "triangle",
+        "bolt",
+        "pentagon"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "star",
+        "bars",
+        "square"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "plus",
+        "star",
+        "downTriangle"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "circle",
+        "heart"
+      ],
+      [],
+      []
+    ]
   }
 ];
 
@@ -1100,7 +1216,7 @@ function getRequestedLevelIndex() {
 
 async function loadLevels() {
   try {
-    const response = await fetch("./levels.json?v=33", { cache: "reload" });
+    const response = await fetch("./levels.json?v=34", { cache: "reload" });
     if (!response.ok) throw new Error("levels unavailable");
     const data = await response.json();
     return data.levels?.length ? data.levels : FALLBACK_LEVELS;
