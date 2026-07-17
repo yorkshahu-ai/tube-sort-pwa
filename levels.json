@@ -716,10 +716,7 @@
           "bolt"
         ],
         [
-          {
-            "type": "unknown",
-            "hidden": true
-          },
+          "circle",
           "heart",
           "square",
           "heart"
@@ -740,19 +737,13 @@
           "drop"
         ],
         [
-          {
-            "type": "unknown",
-            "hidden": true
-          },
+          "diamond",
           "square",
           "diamond",
           "bars"
         ],
         [
-          {
-            "type": "unknown",
-            "hidden": true
-          },
+          "drop",
           "line",
           "bars",
           "line"

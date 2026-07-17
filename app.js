@@ -732,14 +732,11 @@ const FALLBACK_LEVELS = [
         "heart",
         "bolt"
       ],
-      [
-        {
-          "type": "unknown",
-          "hidden": true
-        },
-        "heart",
-        "square",
-        "heart"
+        [
+          "circle",
+          "heart",
+          "square",
+          "heart"
       ],
       [
         "star",
@@ -756,23 +753,17 @@ const FALLBACK_LEVELS = [
         "star",
         "drop"
       ],
-      [
-        {
-          "type": "unknown",
-          "hidden": true
-        },
-        "square",
-        "diamond",
-        "bars"
-      ],
-      [
-        {
-          "type": "unknown",
-          "hidden": true
-        },
-        "line",
-        "bars",
-        "line"
+        [
+          "diamond",
+          "square",
+          "diamond",
+          "bars"
+        ],
+        [
+          "drop",
+          "line",
+          "bars",
+          "line"
       ],
       [
         "star",
@@ -1045,7 +1036,7 @@ function getRequestedLevelIndex() {
 
 async function loadLevels() {
   try {
-    const response = await fetch("./levels.json?v=30", { cache: "reload" });
+    const response = await fetch("./levels.json?v=31", { cache: "reload" });
     if (!response.ok) throw new Error("levels unavailable");
     const data = await response.json();
     return data.levels?.length ? data.levels : FALLBACK_LEVELS;
