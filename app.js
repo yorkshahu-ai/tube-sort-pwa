@@ -694,6 +694,103 @@ const FALLBACK_LEVELS = [
     ]
   },
   {
+    "id": "7C",
+    "name": "第 7C 關",
+    "extraEmptyTubes": 1,
+    "notes": "依使用者提供的第 7C 關截圖建立；type=unknown 表示截圖中仍為問號，補齊後才能提供保證可過關提示。",
+    "tubes": [
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "line",
+        "bolt"
+      ],
+      [
+        "plus",
+        "diamond",
+        "square",
+        "star"
+      ],
+      [
+        "bolt",
+        "circle",
+        "bars",
+        "heart"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "plus",
+        "heart",
+        "bolt"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "heart",
+        "square",
+        "heart"
+      ],
+      [
+        "star",
+        "diamond",
+        "square",
+        "triangle"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "plus",
+        "star",
+        "drop"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "square",
+        "diamond",
+        "bars"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "line",
+        "bars",
+        "line"
+      ],
+      [
+        "star",
+        "circle",
+        "line",
+        "triangle"
+      ],
+      [
+        "plus",
+        "circle",
+        "bars",
+        "triangle"
+      ],
+      [],
+      []
+    ]
+  },
+  {
     "id": 8,
     "name": "第 8 關",
     "extraEmptyTubes": 1,
@@ -948,7 +1045,7 @@ function getRequestedLevelIndex() {
 
 async function loadLevels() {
   try {
-    const response = await fetch("./levels.json?v=29", { cache: "reload" });
+    const response = await fetch("./levels.json?v=30", { cache: "reload" });
     if (!response.ok) throw new Error("levels unavailable");
     const data = await response.json();
     return data.levels?.length ? data.levels : FALLBACK_LEVELS;
