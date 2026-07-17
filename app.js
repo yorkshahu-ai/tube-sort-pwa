@@ -718,10 +718,7 @@ const FALLBACK_LEVELS = [
         "heart"
       ],
       [
-        {
-          "type": "unknown",
-          "hidden": true
-        },
+        "drop",
         "plus",
         "heart",
         "bolt"
@@ -739,10 +736,7 @@ const FALLBACK_LEVELS = [
         "triangle"
       ],
       [
-        {
-          "type": "unknown",
-          "hidden": true
-        },
+        "triangle",
         "plus",
         "star",
         "drop"
@@ -758,6 +752,82 @@ const FALLBACK_LEVELS = [
           "line",
           "bars",
           "line"
+      ],
+      [
+        "star",
+        "circle",
+        "line",
+        "triangle"
+      ],
+      [
+        "plus",
+        "circle",
+        "bars",
+        "triangle"
+      ],
+      [],
+      []
+    ]
+  },
+  {
+    "id": "7D",
+    "name": "第 7D 關",
+    "extraEmptyTubes": 1,
+    "notes": "7C 剩餘兩格問號的反向模擬版本：第 4 支底部三角形、第 7 支底部水滴。",
+    "tubes": [
+      [
+        "bolt",
+        "drop",
+        "line",
+        "bolt"
+      ],
+      [
+        "plus",
+        "diamond",
+        "square",
+        "star"
+      ],
+      [
+        "bolt",
+        "circle",
+        "bars",
+        "heart"
+      ],
+      [
+        "triangle",
+        "plus",
+        "heart",
+        "bolt"
+      ],
+      [
+        "circle",
+        "heart",
+        "square",
+        "heart"
+      ],
+      [
+        "star",
+        "diamond",
+        "square",
+        "triangle"
+      ],
+      [
+        "drop",
+        "plus",
+        "star",
+        "drop"
+      ],
+      [
+        "diamond",
+        "square",
+        "diamond",
+        "bars"
+      ],
+      [
+        "drop",
+        "line",
+        "bars",
+        "line"
       ],
       [
         "star",
@@ -1030,7 +1100,7 @@ function getRequestedLevelIndex() {
 
 async function loadLevels() {
   try {
-    const response = await fetch("./levels.json?v=32", { cache: "reload" });
+    const response = await fetch("./levels.json?v=33", { cache: "reload" });
     if (!response.ok) throw new Error("levels unavailable");
     const data = await response.json();
     return data.levels?.length ? data.levels : FALLBACK_LEVELS;
