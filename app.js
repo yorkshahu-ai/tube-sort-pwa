@@ -1258,6 +1258,7 @@ const FALLBACK_LEVELS = [
 ];
 
 const board = document.querySelector("#board");
+const appShell = document.querySelector(".app-shell");
 const levelTitle = document.querySelector("#levelTitle");
 const moveCount = document.querySelector("#moveCount");
 const emptyBottleCount = document.querySelector("#emptyBottleCount");
@@ -1320,7 +1321,7 @@ function getRequestedLevelIndex() {
 
 async function loadLevels() {
   try {
-    const response = await fetch("./levels.json?v=37", { cache: "reload" });
+    const response = await fetch("./levels.json?v=38", { cache: "reload" });
     if (!response.ok) throw new Error("levels unavailable");
     const data = await response.json();
     return data.levels?.length ? data.levels : FALLBACK_LEVELS;
@@ -1429,6 +1430,7 @@ function render() {
   addTubeButton.disabled = state.addedEmptyTubes >= (level.extraEmptyTubes ?? 1);
 
   renderLevelJump();
+  appShell.classList.toggle("compact-layout", state.tubes.length > 14);
   board.classList.toggle("dense", state.tubes.length > 10);
   board.classList.toggle("extra-dense", state.tubes.length > 14);
   board.innerHTML = "";
