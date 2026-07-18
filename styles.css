@@ -399,6 +399,26 @@ h1 {
   grid-column: auto;
 }
 
+.board.sixteen-layout {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.board.sixteen-layout .tube-button:nth-child(13) {
+  grid-column: 2;
+}
+
+.board.sixteen-layout .tube-button:nth-child(14) {
+  grid-column: 3;
+}
+
+.board.sixteen-layout .tube-button:nth-child(15) {
+  grid-column: 4;
+}
+
+.board.sixteen-layout .tube-button:nth-child(16) {
+  grid-column: 5;
+}
+
 .board.extra-dense .slot {
   font-size: 1.24rem;
 }
@@ -820,6 +840,10 @@ h1 {
 
   .board.extra-dense .slot.mystery {
     font-size: 1.05rem;
+  }
+
+  .board.sixteen-layout {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 
   .controls {
