@@ -398,6 +398,7 @@ h1 {
 .chem-bars { background: linear-gradient(180deg, #9b54e5, #7333bf); }
 .chem-pentagon { background: linear-gradient(180deg, #f2a9df, #c678bc); }
 .chem-down-triangle { background: linear-gradient(180deg, #e6ac98, #bf7565); }
+.chem-cross { background: linear-gradient(180deg, #8f999f, #5e686e); }
 .chem-plus { background: linear-gradient(180deg, #249347, #136d32); }
 .chem-circle { background: linear-gradient(180deg, #b38a50, #80612f); }
 .chem-diamond { background: linear-gradient(180deg, #df554d, #b82c2a); }

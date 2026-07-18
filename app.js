@@ -10,6 +10,7 @@ const CHEMISTRY = {
   bars: { icon: "Ⅱ", label: "雙線", className: "chem-bars" },
   pentagon: { icon: "⬟", label: "五邊形", className: "chem-pentagon" },
   downTriangle: { icon: "▽", label: "倒三角形", className: "chem-down-triangle" },
+  cross: { icon: "×", label: "叉號", className: "chem-cross" },
   plus: { icon: "＋", label: "加號", className: "chem-plus" },
   circle: { icon: "○", label: "圓形", className: "chem-circle" },
   diamond: { icon: "◇", label: "菱形", className: "chem-diamond" },
@@ -1150,6 +1151,109 @@ const FALLBACK_LEVELS = [
       [],
       []
     ]
+  },
+  {
+    "id": 11,
+    "name": "第 11 關",
+    "extraEmptyTubes": 1,
+    "notes": "依使用者提供的第 11 關截圖建立；type=unknown 表示截圖中仍為問號。",
+    "tubes": [
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "line",
+        "bolt",
+        "star"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "diamond",
+        "square",
+        "bolt"
+      ],
+      [
+        "line",
+        "square",
+        "diamond",
+        "circle"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "bolt",
+        "heart",
+        "pentagon"
+      ],
+      [
+        "circle",
+        "bolt",
+        "star",
+        "triangle"
+      ],
+      [
+        "square",
+        "star",
+        "heart",
+        "bars"
+      ],
+      [
+        "pentagon",
+        "bars",
+        "cross",
+        "diamond"
+      ],
+      [
+        "line",
+        "heart",
+        "downTriangle",
+        "plus"
+      ],
+      [
+        "downTriangle",
+        "square",
+        "pentagon",
+        "plus"
+      ],
+      [
+        "triangle",
+        "cross",
+        "heart",
+        "circle"
+      ],
+      [
+        "plus",
+        "triangle",
+        "drop",
+        "circle"
+      ],
+      [
+        "line",
+        "drop",
+        "bars",
+        "star"
+      ],
+      [
+        "triangle",
+        "drop",
+        "cross",
+        "pentagon"
+      ],
+      [
+        "plus",
+        "bars",
+        "downTriangle",
+        "drop"
+      ],
+      [],
+      []
+    ]
   }
 ];
 
@@ -1216,7 +1320,7 @@ function getRequestedLevelIndex() {
 
 async function loadLevels() {
   try {
-    const response = await fetch("./levels.json?v=35", { cache: "reload" });
+    const response = await fetch("./levels.json?v=36", { cache: "reload" });
     if (!response.ok) throw new Error("levels unavailable");
     const data = await response.json();
     return data.levels?.length ? data.levels : FALLBACK_LEVELS;
