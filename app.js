@@ -1320,7 +1320,7 @@ function getRequestedLevelIndex() {
 
 async function loadLevels() {
   try {
-    const response = await fetch("./levels.json?v=36", { cache: "reload" });
+    const response = await fetch("./levels.json?v=37", { cache: "reload" });
     if (!response.ok) throw new Error("levels unavailable");
     const data = await response.json();
     return data.levels?.length ? data.levels : FALLBACK_LEVELS;
@@ -1482,6 +1482,17 @@ function render() {
 
 function renderLevelJump() {
   levelJump.innerHTML = "";
+  const level = levels[state.levelIndex];
+  const details = document.createElement("details");
+  details.className = "level-picker";
+
+  const summary = document.createElement("summary");
+  summary.className = "level-picker-summary";
+  summary.textContent = `關卡 ${level.id}`;
+  details.append(summary);
+
+  const options = document.createElement("div");
+  options.className = "level-picker-options";
   levels.forEach((level, index) => {
     const button = document.createElement("button");
     button.className = "level-jump-button";
@@ -1492,12 +1503,15 @@ function renderLevelJump() {
     button.addEventListener("click", () => {
       if (index === state.levelIndex) return;
       startLevel(index);
+      details.open = false;
       const url = new URL(window.location.href);
       url.searchParams.set("level", String(level.id));
       window.history.replaceState(null, "", url);
     });
-    levelJump.append(button);
+    options.append(button);
   });
+  details.append(options);
+  levelJump.append(details);
 }
 
 function describeTube(tube, index) {

@@ -181,8 +181,58 @@ h1 {
   flex-wrap: wrap;
   justify-content: center;
   gap: 6px;
-  min-height: 30px;
-  padding: 2px 0 4px;
+  min-height: 28px;
+  padding: 1px 0 3px;
+}
+
+.level-picker {
+  position: relative;
+  width: min(100%, 260px);
+}
+
+.level-picker-summary {
+  display: grid;
+  place-items: center;
+  min-height: 28px;
+  border: 1px solid rgba(247, 207, 117, 0.58);
+  border-radius: 999px;
+  background: linear-gradient(#d89b3f, #935a20);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 900;
+  list-style: none;
+  cursor: pointer;
+}
+
+.level-picker-summary::-webkit-details-marker {
+  display: none;
+}
+
+.level-picker-summary::after {
+  content: "▾";
+  margin-left: 6px;
+}
+
+.level-picker[open] .level-picker-summary::after {
+  content: "▴";
+}
+
+.level-picker-options {
+  position: absolute;
+  left: 50%;
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  width: min(92vw, 360px);
+  margin-top: 5px;
+  padding: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  background: rgba(5, 18, 28, 0.96);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.45);
+  transform: translateX(-50%);
 }
 
 .level-jump-button {
@@ -612,9 +662,25 @@ h1 {
 
   .level-jump {
     flex-wrap: wrap;
-    min-height: 24px;
+    min-height: 22px;
     gap: 4px;
-    padding: 1px 0 2px;
+    padding: 0 0 1px;
+  }
+
+  .level-picker {
+    width: min(100%, 180px);
+  }
+
+  .level-picker-summary {
+    min-height: 22px;
+    font-size: 0.72rem;
+  }
+
+  .level-picker-options {
+    gap: 4px;
+    width: min(92vw, 330px);
+    margin-top: 4px;
+    padding: 6px;
   }
 
   .level-jump-button {
@@ -660,7 +726,7 @@ h1 {
 
   .board.extra-dense {
     --tube-width: clamp(34px, 9.3vw, 38px);
-    --tube-height: clamp(88px, 12.5dvh, 104px);
+    --tube-height: clamp(78px, 11.5dvh, 96px);
     grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: clamp(4px, 0.7dvh, 6px) 0;
     padding: 1px 0 3px;
