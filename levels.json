@@ -1137,16 +1137,16 @@
       "id": 11,
       "name": "第 11 關",
       "extraEmptyTubes": 1,
-      "notes": "第 11 關依圖形數量推算補齊；第 1 支底部 X、第 2 支底部菱形、第 4 支底部倒三角形。",
+      "notes": "第 11 關依使用者最新截圖更新；第 1 支底部菱形、第 2 支底部 X、第 4 支底部倒三角形。",
       "tubes": [
         [
-          "cross",
+          "diamond",
           "line",
           "bolt",
           "star"
         ],
         [
-          "diamond",
+          "cross",
           "diamond",
           "square",
           "bolt"

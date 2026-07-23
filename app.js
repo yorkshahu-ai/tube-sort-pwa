@@ -1156,16 +1156,16 @@ const FALLBACK_LEVELS = [
     "id": 11,
     "name": "第 11 關",
     "extraEmptyTubes": 1,
-    "notes": "第 11 關依圖形數量推算補齊；第 1 支底部 X、第 2 支底部菱形、第 4 支底部倒三角形。",
+    "notes": "第 11 關依使用者最新截圖更新；第 1 支底部菱形、第 2 支底部 X、第 4 支底部倒三角形。",
     "tubes": [
       [
-        "cross",
+        "diamond",
         "line",
         "bolt",
         "star"
       ],
       [
-        "diamond",
+        "cross",
         "diamond",
         "square",
         "bolt"
@@ -1312,7 +1312,7 @@ function getRequestedLevelIndex() {
 
 async function loadLevels() {
   try {
-    const response = await fetch("./levels.json?v=40", { cache: "reload" });
+    const response = await fetch("./levels.json?v=41", { cache: "reload" });
     if (!response.ok) throw new Error("levels unavailable");
     const data = await response.json();
     return data.levels?.length ? data.levels : FALLBACK_LEVELS;
