@@ -1245,6 +1245,127 @@ const FALLBACK_LEVELS = [
       [],
       []
     ]
+  },
+  {
+    "id": 12,
+    "name": "第 12 關",
+    "extraEmptyTubes": 1,
+    "notes": "依使用者提供的第 12 關截圖建立；type=unknown 表示截圖中仍為問號。",
+    "tubes": [
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "pentagon",
+        "diamond",
+        "downTriangle"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "triangle",
+        "bars",
+        "star"
+      ],
+      [
+        "plus",
+        "square",
+        "downTriangle",
+        "square"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "pentagon",
+        "bolt",
+        "bars"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "cross",
+        "diamond",
+        "star"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "drop",
+        "downTriangle",
+        "drop"
+      ],
+      [
+        "plus",
+        "line",
+        "square",
+        "cross"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "plus",
+        "drop",
+        "bolt"
+      ],
+      [
+        "cross",
+        "line",
+        "bars",
+        "heart"
+      ],
+      [
+        "downTriangle",
+        "diamond",
+        "triangle",
+        "diamond"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "drop",
+        "heart",
+        "star"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "star",
+        "circle",
+        "line"
+      ],
+      [
+        "circle",
+        "pentagon",
+        "triangle",
+        "heart"
+      ],
+      [
+        {
+          "type": "unknown",
+          "hidden": true
+        },
+        "bolt",
+        "bars",
+        "square"
+      ],
+      [],
+      []
+    ]
   }
 ];
 
@@ -1312,7 +1433,7 @@ function getRequestedLevelIndex() {
 
 async function loadLevels() {
   try {
-    const response = await fetch("./levels.json?v=41", { cache: "reload" });
+    const response = await fetch("./levels.json?v=42", { cache: "reload" });
     if (!response.ok) throw new Error("levels unavailable");
     const data = await response.json();
     return data.levels?.length ? data.levels : FALLBACK_LEVELS;
