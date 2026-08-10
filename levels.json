@@ -1347,6 +1347,142 @@
         [],
         []
       ]
+    },
+    {
+      "id": 14,
+      "name": "第 14 關",
+      "extraEmptyTubes": 1,
+      "notes": "依使用者提供的第 14 關截圖建立；type=unknown 表示截圖中仍為問號。",
+      "tubes": [
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "heart",
+          "diamond",
+          "triangle"
+        ],
+        [
+          "pentagon",
+          "plus",
+          "bars",
+          "pentagon"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "diamond",
+          "drop"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "cross",
+          "line"
+        ],
+        [
+          "bars",
+          "square",
+          "triangle",
+          "heart"
+        ],
+        [
+          "cross",
+          "downTriangle",
+          "diamond",
+          "line"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "circle",
+          "drop"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "circle",
+          "bars",
+          "pentagon"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "bolt",
+          "square"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "heart",
+          "bolt",
+          "plus"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "circle",
+          "bars",
+          "diamond"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "heart",
+          "plus",
+          "line"
+        ],
+        [
+          "square",
+          "downTriangle",
+          "triangle",
+          "plus"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "bolt",
+          "star",
+          "downTriangle"
+        ],
+        [],
+        []
+      ]
     }
   ]
 }
