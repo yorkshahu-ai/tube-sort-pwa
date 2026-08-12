@@ -1,10 +1,10 @@
-const CACHE_NAME = "tube-sort-lab-v44";
+const CACHE_NAME = "tube-sort-lab-v45";
 const APP_ASSETS = [
   "./",
   "./index.html",
-  "./styles.css?v=44",
-  "./app.js?v=44",
-  "./levels.json?v=44",
+  "./styles.css?v=45",
+  "./app.js?v=45",
+  "./levels.json?v=45",
   "./manifest.json",
   "./assets/icon-192.png",
   "./assets/icon-512.png",
