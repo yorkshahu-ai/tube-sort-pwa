@@ -18,1356 +18,1464 @@ const CHEMISTRY = {
   triangle: { icon: "△", label: "三角形", className: "chem-triangle" }
 };
 
-const FALLBACK_LEVELS = [
-  {
-    "id": 1,
-    "name": "第 1 關",
-    "extraEmptyTubes": 1,
-    "tubes": [
-      [
-        "heart",
-        "star",
-        "bolt",
-        "drop"
-      ],
-      [
-        "star",
-        "heart",
-        "drop",
-        "bolt"
-      ],
-      [
-        "bolt",
-        "drop",
-        "star",
-        "heart"
-      ],
-      [
-        "drop",
-        "bolt",
-        "heart",
-        "star"
-      ],
-      [],
-      []
-    ]
-  },
-  {
-    "id": 2,
-    "name": "第 2 關",
-    "extraEmptyTubes": 1,
-    "tubes": [
-      [
-        "line",
-        "plus",
-        "circle",
-        "diamond"
-      ],
-      [
-        "plus",
-        "square",
-        "line",
-        "triangle"
-      ],
-      [
-        "circle",
-        "diamond",
-        "square",
-        "plus"
-      ],
-      [
-        "diamond",
-        "triangle",
-        "plus",
-        "line"
-      ],
-      [
-        "square",
-        "line",
-        "triangle",
-        "circle"
-      ],
-      [
-        "triangle",
-        "circle",
-        "diamond",
-        "square"
-      ],
-      [],
-      []
-    ]
-  },
-  {
-    "id": 3,
-    "name": "第 3 關",
-    "extraEmptyTubes": 2,
-    "tubes": [
-      [
-        "heart",
-        "line",
-        "triangle",
-        "circle"
-      ],
-      [
-        "star",
-        "heart",
-        "diamond",
-        "plus"
-      ],
-      [
-        "bolt",
-        "square",
-        "star",
-        "line"
-      ],
-      [
-        "drop",
-        "triangle",
-        "bolt",
-        "heart"
-      ],
-      [
-        "line",
-        "circle",
-        "drop",
-        "square"
-      ],
-      [
-        "plus",
-        "diamond",
-        "circle",
-        "bolt"
-      ],
-      [
-        "diamond",
-        "drop",
-        "plus",
-        "triangle"
-      ],
-      [
-        "square",
-        "star",
-        "heart",
-        "drop"
-      ],
-      [
-        "circle",
-        "bolt",
-        "line",
-        "star"
-      ],
-      [
-        "triangle",
-        "plus",
-        "square",
-        "diamond"
-      ],
-      [],
-      []
-    ]
-  },
-  {
-    "id": 6,
-    "name": "第 6 關",
-    "extraEmptyTubes": 1,
-    "notes": "依使用者截圖建立。hidden=true 會先顯示問號，當該格成為最上層時自動翻開。",
-    "tubes": [
-      [
-        {
-          "type": "bolt",
-          "hidden": true
-        },
-        {
-          "type": "drop",
-          "hidden": true
-        },
-        {
-          "type": "line",
-          "hidden": true
-        },
-        "bolt"
-      ],
-      [
-        {
-          "type": "plus",
-          "hidden": true
-        },
-        {
-          "type": "diamond",
-          "hidden": true
-        },
-        {
-          "type": "square",
-          "hidden": true
-        },
-        "star"
-      ],
-      [
-        {
-          "type": "bolt",
-          "hidden": true
-        },
-        {
-          "type": "circle",
-          "hidden": true
-        },
-        {
-          "type": "bars",
-          "hidden": true
-        },
-        "heart"
-      ],
-      [
-        {
-          "type": "drop",
-          "hidden": true
-        },
-        {
-          "type": "plus",
-          "hidden": true
-        },
-        {
-          "type": "heart",
-          "hidden": true
-        },
-        "bolt"
-      ],
-      [
-        {
-          "type": "circle",
-          "hidden": true
-        },
-        {
-          "type": "heart",
-          "hidden": true
-        },
-        {
-          "type": "square",
-          "hidden": true
-        },
-        "heart"
-      ],
-      [
-        {
-          "type": "star",
-          "hidden": true
-        },
-        {
-          "type": "diamond",
-          "hidden": true
-        },
-        {
-          "type": "square",
-          "hidden": true
-        },
-        "triangle"
-      ],
-      [
-        {
-          "type": "triangle",
-          "hidden": true
-        },
-        {
-          "type": "plus",
-          "hidden": true
-        },
-        {
-          "type": "star",
-          "hidden": true
-        },
-        "drop"
-      ],
-      [
-        {
-          "type": "diamond",
-          "hidden": true
-        },
-        {
-          "type": "square",
-          "hidden": true
-        },
-        {
-          "type": "diamond",
-          "hidden": true
-        },
-        "bars"
-      ],
-      [
-        {
-          "type": "drop",
-          "hidden": true
-        },
-        {
-          "type": "line",
-          "hidden": true
-        },
-        {
-          "type": "bars",
-          "hidden": true
-        },
-        "line"
-      ],
-      [
-        {
-          "type": "star",
-          "hidden": true
-        },
-        {
-          "type": "circle",
-          "hidden": true
-        },
-        {
-          "type": "line",
-          "hidden": true
-        },
-        "triangle"
-      ],
-      [
-        {
-          "type": "plus",
-          "hidden": true
-        },
-        {
-          "type": "circle",
-          "hidden": true
-        },
-        {
-          "type": "bars",
-          "hidden": true
-        },
-        "triangle"
-      ],
-      [],
-      []
-    ]
-  },
-  {
-    "id": 7,
-    "name": "第 7 關",
-    "extraEmptyTubes": 1,
-    "notes": "依使用者提供的第 7 關完整位置圖建立。hidden=true 會先顯示問號，當該格成為最上層時自動翻開。",
-    "tubes": [
-      [
-        {
-          "type": "drop",
-          "hidden": true
-        },
-        {
-          "type": "bolt",
-          "hidden": true
-        },
-        {
-          "type": "square",
-          "hidden": true
-        },
-        "triangle"
-      ],
-      [
-        {
-          "type": "diamond",
-          "hidden": true
-        },
-        {
-          "type": "star",
-          "hidden": true
-        },
-        {
-          "type": "square",
-          "hidden": true
-        },
-        "heart"
-      ],
-      [
-        {
-          "type": "plus",
-          "hidden": true
-        },
-        {
-          "type": "diamond",
-          "hidden": true
-        },
-        {
-          "type": "pentagon",
-          "hidden": true
-        },
-        "line"
-      ],
-      [
-        {
-          "type": "star",
-          "hidden": true
-        },
-        {
-          "type": "heart",
-          "hidden": true
-        },
-        {
-          "type": "bolt",
-          "hidden": true
-        },
-        "line"
-      ],
-      [
-        {
-          "type": "circle",
-          "hidden": true
-        },
-        {
-          "type": "pentagon",
-          "hidden": true
-        },
-        {
-          "type": "plus",
-          "hidden": true
-        },
-        "line"
-      ],
-      [
-        {
-          "type": "square",
-          "hidden": true
-        },
-        {
-          "type": "bars",
-          "hidden": true
-        },
-        {
-          "type": "square",
-          "hidden": true
-        },
-        "triangle"
-      ],
-      [
-        {
-          "type": "star",
-          "hidden": true
-        },
-        {
-          "type": "bars",
-          "hidden": true
-        },
-        {
-          "type": "heart",
-          "hidden": true
-        },
-        "bolt"
-      ],
-      [
-        {
-          "type": "star",
-          "hidden": true
-        },
-        {
-          "type": "drop",
-          "hidden": true
-        },
-        {
-          "type": "circle",
-          "hidden": true
-        },
-        "drop"
-      ],
-      [
-        {
-          "type": "drop",
-          "hidden": true
-        },
-        {
-          "type": "triangle",
-          "hidden": true
-        },
-        {
-          "type": "plus",
-          "hidden": true
-        },
-        "diamond"
-      ],
-      [
-        {
-          "type": "circle",
-          "hidden": true
-        },
-        {
-          "type": "heart",
-          "hidden": true
-        },
-        {
-          "type": "bars",
-          "hidden": true
-        },
-        "bolt"
-      ],
-      [
-        {
-          "type": "diamond",
-          "hidden": true
-        },
-        {
-          "type": "pentagon",
-          "hidden": true
-        },
-        {
-          "type": "triangle",
-          "hidden": true
-        },
-        "circle"
-      ],
-      [
-        {
-          "type": "bars",
-          "hidden": true
-        },
-        {
-          "type": "plus",
-          "hidden": true
-        },
-        {
-          "type": "pentagon",
-          "hidden": true
-        },
-        "line"
-      ],
-      [],
-      []
-    ]
-  },
-  {
-    "id": "7A",
-    "name": "第 7A 關",
-    "extraEmptyTubes": 1,
-    "notes": "第 7A 關已依使用者截圖補齊；hidden=true 會先顯示問號，當該格成為最上層時自動翻開。",
-    "tubes": [
-      [
-        "diamond",
-        "circle",
-        "plus",
-        "bolt"
-      ],
-      [
-        "plus",
-        "square",
-        "pentagon",
-        "circle"
-      ],
-      [
-        "heart",
-        "square",
-        "bolt",
-        "triangle"
-      ],
-      [
-        "triangle",
-        "pentagon",
-        "drop",
-        "circle"
-      ],
-      [
-        "bars",
-        "heart",
-        "bolt",
-        "drop"
-      ],
-      [
-        "star",
-        "bars",
-        "triangle",
-        "line"
-      ],
-      [
-        "star",
-        "pentagon",
-        "drop",
-        "square"
-      ],
-      [
-        "diamond",
-        "heart",
-        "square",
-        "line"
-      ],
-      [
-        "bars",
-        "bolt",
-        "triangle",
-        "diamond"
-      ],
-      [
-        "bars",
-        "line",
-        "pentagon",
-        "heart"
-      ],
-      [
-        "plus",
-        "circle",
-        "plus",
-        "star"
-      ],
-      [
-        "star",
-        "drop",
-        "line",
-        "diamond"
-      ],
-      [],
-      []
-    ]
-  },
-  {
-    "id": "7B",
-    "name": "第 7B 關",
-    "extraEmptyTubes": 1,
-    "notes": "依使用者提供的第 7B 關截圖建立；第 8 支最底層問號依使用者說明補為紫色直條。",
-    "tubes": [
-      [
-        "line",
-        "pentagon",
-        "bolt",
-        "plus"
-      ],
-      [
-        "bolt",
-        "triangle",
-        "pentagon",
-        "bars"
-      ],
-      [
-        "square",
-        "diamond",
-        "circle",
-        "plus"
-      ],
-      [
-        "star",
-        "pentagon",
-        "heart",
-        "plus"
-      ],
-      [
-        "bolt",
-        "star",
-        "heart",
-        "drop"
-      ],
-      [
-        "circle",
-        "heart",
-        "circle",
-        "square"
-      ],
-      [
-        "bars",
-        "star",
-        "pentagon",
-        "triangle"
-      ],
-      [
-        "bars",
-        "line",
-        "drop",
-        "circle"
-      ],
-      [
-        "line",
-        "square",
-        "bolt",
-        "star"
-      ],
-      [
-        "bars",
-        "line",
-        "drop",
-        "diamond"
-      ],
-      [
-        "diamond",
-        "plus",
-        "square",
-        "triangle"
-      ],
-      [
-        "diamond",
-        "heart",
-        "drop",
-        "triangle"
-      ],
-      [],
-      []
-    ]
-  },
-  {
-    "id": "7C",
-    "name": "第 7C 關",
-    "extraEmptyTubes": 1,
-    "notes": "依使用者提供的第 7C 關截圖建立；type=unknown 表示截圖中仍為問號，補齊後才能提供保證可過關提示。",
-    "tubes": [
-      [
-        "bolt",
-        "drop",
-        "line",
-        "bolt"
-      ],
-      [
-        "plus",
-        "diamond",
-        "square",
-        "star"
-      ],
-      [
-        "bolt",
-        "circle",
-        "bars",
-        "heart"
-      ],
-      [
-        "drop",
-        "plus",
-        "heart",
-        "bolt"
-      ],
-      [
-        "circle",
-        "heart",
-        "square",
-        "heart"
-      ],
-      [
-        "star",
-        "diamond",
-        "square",
-        "triangle"
-      ],
-      [
-        "triangle",
-        "plus",
-        "star",
-        "drop"
-      ],
-      [
-        "diamond",
-        "square",
-        "diamond",
-        "bars"
-      ],
-      [
-        "drop",
-        "line",
-        "bars",
-        "line"
-      ],
-      [
-        "star",
-        "circle",
-        "line",
-        "triangle"
-      ],
-      [
-        "plus",
-        "circle",
-        "bars",
-        "triangle"
-      ],
-      [],
-      []
-    ]
-  },
-  {
-    "id": "7D",
-    "name": "第 7D 關",
-    "extraEmptyTubes": 1,
-    "notes": "7C 剩餘兩格問號的反向模擬版本：第 4 支底部三角形、第 7 支底部水滴。",
-    "tubes": [
-      [
-        "bolt",
-        "drop",
-        "line",
-        "bolt"
-      ],
-      [
-        "plus",
-        "diamond",
-        "square",
-        "star"
-      ],
-      [
-        "bolt",
-        "circle",
-        "bars",
-        "heart"
-      ],
-      [
-        "triangle",
-        "plus",
-        "heart",
-        "bolt"
-      ],
-      [
-        "circle",
-        "heart",
-        "square",
-        "heart"
-      ],
-      [
-        "star",
-        "diamond",
-        "square",
-        "triangle"
-      ],
-      [
-        "drop",
-        "plus",
-        "star",
-        "drop"
-      ],
-      [
-        "diamond",
-        "square",
-        "diamond",
-        "bars"
-      ],
-      [
-        "drop",
-        "line",
-        "bars",
-        "line"
-      ],
-      [
-        "star",
-        "circle",
-        "line",
-        "triangle"
-      ],
-      [
-        "plus",
-        "circle",
-        "bars",
-        "triangle"
-      ],
-      [],
-      []
-    ]
-  },
-  {
-    "id": 8,
-    "name": "第 8 關",
-    "extraEmptyTubes": 1,
-    "notes": "第 8 關已依截圖與圖案數量補齊；hidden=true 會先顯示問號，當該格成為最上層時自動翻開。",
-    "tubes": [
-      [
-        {
-          "type": "bolt",
-          "hidden": true
-        },
-        {
-          "type": "bolt",
-          "hidden": true
-        },
-        {
-          "type": "line",
-          "hidden": true
-        },
-        "square"
-      ],
-      [
-        {
-          "type": "star",
-          "hidden": true
-        },
-        {
-          "type": "heart",
-          "hidden": true
-        },
-        {
-          "type": "plus",
-          "hidden": true
-        },
-        "bars"
-      ],
-      [
-        {
-          "type": "line",
-          "hidden": true
-        },
-        {
-          "type": "circle",
-          "hidden": true
-        },
-        {
-          "type": "drop",
-          "hidden": true
-        },
-        "square"
-      ],
-      [
-        {
-          "type": "drop",
-          "hidden": true
-        },
-        {
-          "type": "diamond",
-          "hidden": true
-        },
-        {
-          "type": "star",
-          "hidden": true
-        },
-        "drop"
-      ],
-      [
-        {
-          "type": "line",
-          "hidden": true
-        },
-        {
-          "type": "heart",
-          "hidden": true
-        },
-        {
-          "type": "plus",
-          "hidden": true
-        },
-        "bolt"
-      ],
-      [
-        {
-          "type": "bars",
-          "hidden": true
-        },
-        {
-          "type": "pentagon",
-          "hidden": true
-        },
-        {
-          "type": "heart",
-          "hidden": true
-        },
-        "line"
-      ],
-      [
-        {
-          "type": "plus",
-          "hidden": true
-        },
-        {
-          "type": "diamond",
-          "hidden": true
-        },
-        {
-          "type": "triangle",
-          "hidden": true
-        },
-        "drop"
-      ],
-      [
-        {
-          "type": "plus",
-          "hidden": true
-        },
-        {
-          "type": "circle",
-          "hidden": true
-        },
-        {
-          "type": "star",
-          "hidden": true
-        },
-        "diamond"
-      ],
-      [
-        {
-          "type": "circle",
-          "hidden": true
-        },
-        {
-          "type": "pentagon",
-          "hidden": true
-        },
-        {
-          "type": "star",
-          "hidden": true
-        },
-        "bars"
-      ],
-      [
-        {
-          "type": "square",
-          "hidden": true
-        },
-        {
-          "type": "circle",
-          "hidden": true
-        },
-        {
-          "type": "triangle",
-          "hidden": true
-        },
-        "pentagon"
-      ],
-      [
-        {
-          "type": "bolt",
-          "hidden": true
-        },
-        {
-          "type": "triangle",
-          "hidden": true
-        },
-        {
-          "type": "diamond",
-          "hidden": true
-        },
-        "pentagon"
-      ],
-      [
-        {
-          "type": "square",
-          "hidden": true
-        },
-        {
-          "type": "triangle",
-          "hidden": true
-        },
-        {
-          "type": "bars",
-          "hidden": true
-        },
-        "heart"
-      ],
-      [],
-      []
-    ]
-  },
-  {
-    "id": 9,
-    "name": "第 9 關",
-    "extraEmptyTubes": 1,
-    "notes": "依使用者提供的第 9 關截圖建立；type=unknown 表示截圖中仍為問號。",
-    "tubes": [
-      [
-        "line",
-        "bolt",
-        "triangle",
-        "pentagon"
-      ],
-      [
-        {
-          "type": "unknown",
-          "hidden": true
-        },
-        {
-          "type": "unknown",
-          "hidden": true
-        },
-        "diamond",
-        "square"
-      ],
-      [
-        "plus",
-        "triangle",
-        "bolt",
-        "heart"
-      ],
-      [
-        "line",
-        "plus",
-        "drop",
-        "circle"
-      ],
-      [
-        {
-          "type": "unknown",
-          "hidden": true
-        },
-        "pentagon",
-        "bars",
-        "star"
-      ],
-      [
-        {
-          "type": "unknown",
-          "hidden": true
-        },
-        {
-          "type": "unknown",
-          "hidden": true
-        },
-        "drop",
-        "downTriangle"
-      ],
-      [
-        "diamond",
-        "pentagon",
-        "drop",
-        "heart"
-      ],
-      [
-        "star",
-        "diamond",
-        "heart",
-        "line"
-      ],
-      [
-        "bars",
-        "bolt",
-        "square",
-        "triangle"
-      ],
-      [
-        "line",
-        "triangle",
-        "bolt",
-        "pentagon"
-      ],
-      [
-        {
-          "type": "unknown",
-          "hidden": true
-        },
-        "star",
-        "bars",
-        "square"
-      ],
-      [
-        {
-          "type": "unknown",
-          "hidden": true
-        },
-        "plus",
-        "star",
-        "downTriangle"
-      ],
-      [
-        {
-          "type": "unknown",
-          "hidden": true
-        },
-        {
-          "type": "unknown",
-          "hidden": true
-        },
-        "circle",
-        "heart"
-      ],
-      [],
-      []
-    ]
-  },
-  {
-    "id": 11,
-    "name": "第 11 關",
-    "extraEmptyTubes": 1,
-    "notes": "第 11 關依使用者最新截圖更新；第 1 支底部菱形、第 2 支底部 X、第 4 支底部倒三角形。",
-    "tubes": [
-      [
-        "diamond",
-        "line",
-        "bolt",
-        "star"
-      ],
-      [
-        "cross",
-        "diamond",
-        "square",
-        "bolt"
-      ],
-      [
-        "line",
-        "square",
-        "diamond",
-        "circle"
-      ],
-      [
-        "downTriangle",
-        "bolt",
-        "heart",
-        "pentagon"
-      ],
-      [
-        "circle",
-        "bolt",
-        "star",
-        "triangle"
-      ],
-      [
-        "square",
-        "star",
-        "heart",
-        "bars"
-      ],
-      [
-        "pentagon",
-        "bars",
-        "cross",
-        "diamond"
-      ],
-      [
-        "line",
-        "heart",
-        "downTriangle",
-        "plus"
-      ],
-      [
-        "downTriangle",
-        "square",
-        "pentagon",
-        "plus"
-      ],
-      [
-        "triangle",
-        "cross",
-        "heart",
-        "circle"
-      ],
-      [
-        "plus",
-        "triangle",
-        "drop",
-        "circle"
-      ],
-      [
-        "line",
-        "drop",
-        "bars",
-        "star"
-      ],
-      [
-        "triangle",
-        "drop",
-        "cross",
-        "pentagon"
-      ],
-      [
-        "plus",
-        "bars",
-        "downTriangle",
-        "drop"
-      ],
-      [],
-      []
-    ]
-  },
-  {
-    "id": 12,
-    "name": "第 12 關",
-    "extraEmptyTubes": 1,
-    "notes": "依使用者提供的第 12 關截圖建立；type=unknown 表示截圖中仍為問號。",
-    "tubes": [
-      [
-        {
-          "type": "unknown",
-          "hidden": true
-        },
-        "pentagon",
-        "diamond",
-        "downTriangle"
-      ],
-      [
-        {
-          "type": "unknown",
-          "hidden": true
-        },
-        "triangle",
-        "bars",
-        "star"
-      ],
-      [
-        "plus",
-        "square",
-        "downTriangle",
-        "square"
-      ],
-      [
-        {
-          "type": "unknown",
-          "hidden": true
-        },
-        "pentagon",
-        "bolt",
-        "bars"
-      ],
-      [
-        {
-          "type": "unknown",
-          "hidden": true
-        },
-        "cross",
-        "diamond",
-        "star"
-      ],
-      [
-        {
-          "type": "unknown",
-          "hidden": true
-        },
-        "drop",
-        "downTriangle",
-        "drop"
-      ],
-      [
-        "plus",
-        "line",
-        "square",
-        "cross"
-      ],
-      [
-        {
-          "type": "unknown",
-          "hidden": true
-        },
-        "plus",
-        "drop",
-        "bolt"
-      ],
-      [
-        "cross",
-        "line",
-        "bars",
-        "heart"
-      ],
-      [
-        "downTriangle",
-        "diamond",
-        "triangle",
-        "diamond"
-      ],
-      [
-        {
-          "type": "unknown",
-          "hidden": true
-        },
-        "drop",
-        "heart",
-        "star"
-      ],
-      [
-        {
-          "type": "unknown",
-          "hidden": true
-        },
-        "star",
-        "circle",
-        "line"
-      ],
-      [
-        "circle",
-        "pentagon",
-        "triangle",
-        "heart"
-      ],
-      [
-        {
-          "type": "unknown",
-          "hidden": true
-        },
-        "bolt",
-        "bars",
-        "square"
-      ],
-      [],
-      []
-    ]
-  }
-];
+const FALLBACK_LEVELS = {
+  "levels": [
+    {
+      "id": 1,
+      "name": "第 1 關",
+      "extraEmptyTubes": 1,
+      "tubes": [
+        [
+          "heart",
+          "star",
+          "bolt",
+          "drop"
+        ],
+        [
+          "star",
+          "heart",
+          "drop",
+          "bolt"
+        ],
+        [
+          "bolt",
+          "drop",
+          "star",
+          "heart"
+        ],
+        [
+          "drop",
+          "bolt",
+          "heart",
+          "star"
+        ],
+        [],
+        []
+      ]
+    },
+    {
+      "id": 2,
+      "name": "第 2 關",
+      "extraEmptyTubes": 1,
+      "tubes": [
+        [
+          "line",
+          "plus",
+          "circle",
+          "diamond"
+        ],
+        [
+          "plus",
+          "square",
+          "line",
+          "triangle"
+        ],
+        [
+          "circle",
+          "diamond",
+          "square",
+          "plus"
+        ],
+        [
+          "diamond",
+          "triangle",
+          "plus",
+          "line"
+        ],
+        [
+          "square",
+          "line",
+          "triangle",
+          "circle"
+        ],
+        [
+          "triangle",
+          "circle",
+          "diamond",
+          "square"
+        ],
+        [],
+        []
+      ]
+    },
+    {
+      "id": 3,
+      "name": "第 3 關",
+      "extraEmptyTubes": 2,
+      "tubes": [
+        [
+          "heart",
+          "line",
+          "triangle",
+          "circle"
+        ],
+        [
+          "star",
+          "heart",
+          "diamond",
+          "plus"
+        ],
+        [
+          "bolt",
+          "square",
+          "star",
+          "line"
+        ],
+        [
+          "drop",
+          "triangle",
+          "bolt",
+          "heart"
+        ],
+        [
+          "line",
+          "circle",
+          "drop",
+          "square"
+        ],
+        [
+          "plus",
+          "diamond",
+          "circle",
+          "bolt"
+        ],
+        [
+          "diamond",
+          "drop",
+          "plus",
+          "triangle"
+        ],
+        [
+          "square",
+          "star",
+          "heart",
+          "drop"
+        ],
+        [
+          "circle",
+          "bolt",
+          "line",
+          "star"
+        ],
+        [
+          "triangle",
+          "plus",
+          "square",
+          "diamond"
+        ],
+        [],
+        []
+      ]
+    },
+    {
+      "id": 6,
+      "name": "第 6 關",
+      "extraEmptyTubes": 1,
+      "notes": "依使用者截圖建立。hidden=true 會先顯示問號，當該格成為最上層時自動翻開。",
+      "tubes": [
+        [
+          {
+            "type": "bolt",
+            "hidden": true
+          },
+          {
+            "type": "drop",
+            "hidden": true
+          },
+          {
+            "type": "line",
+            "hidden": true
+          },
+          "bolt"
+        ],
+        [
+          {
+            "type": "plus",
+            "hidden": true
+          },
+          {
+            "type": "diamond",
+            "hidden": true
+          },
+          {
+            "type": "square",
+            "hidden": true
+          },
+          "star"
+        ],
+        [
+          {
+            "type": "bolt",
+            "hidden": true
+          },
+          {
+            "type": "circle",
+            "hidden": true
+          },
+          {
+            "type": "bars",
+            "hidden": true
+          },
+          "heart"
+        ],
+        [
+          {
+            "type": "drop",
+            "hidden": true
+          },
+          {
+            "type": "plus",
+            "hidden": true
+          },
+          {
+            "type": "heart",
+            "hidden": true
+          },
+          "bolt"
+        ],
+        [
+          {
+            "type": "circle",
+            "hidden": true
+          },
+          {
+            "type": "heart",
+            "hidden": true
+          },
+          {
+            "type": "square",
+            "hidden": true
+          },
+          "heart"
+        ],
+        [
+          {
+            "type": "star",
+            "hidden": true
+          },
+          {
+            "type": "diamond",
+            "hidden": true
+          },
+          {
+            "type": "square",
+            "hidden": true
+          },
+          "triangle"
+        ],
+        [
+          {
+            "type": "triangle",
+            "hidden": true
+          },
+          {
+            "type": "plus",
+            "hidden": true
+          },
+          {
+            "type": "star",
+            "hidden": true
+          },
+          "drop"
+        ],
+        [
+          {
+            "type": "diamond",
+            "hidden": true
+          },
+          {
+            "type": "square",
+            "hidden": true
+          },
+          {
+            "type": "diamond",
+            "hidden": true
+          },
+          "bars"
+        ],
+        [
+          {
+            "type": "drop",
+            "hidden": true
+          },
+          {
+            "type": "line",
+            "hidden": true
+          },
+          {
+            "type": "bars",
+            "hidden": true
+          },
+          "line"
+        ],
+        [
+          {
+            "type": "star",
+            "hidden": true
+          },
+          {
+            "type": "circle",
+            "hidden": true
+          },
+          {
+            "type": "line",
+            "hidden": true
+          },
+          "triangle"
+        ],
+        [
+          {
+            "type": "plus",
+            "hidden": true
+          },
+          {
+            "type": "circle",
+            "hidden": true
+          },
+          {
+            "type": "bars",
+            "hidden": true
+          },
+          "triangle"
+        ],
+        [],
+        []
+      ]
+    },
+    {
+      "id": 7,
+      "name": "第 7 關",
+      "extraEmptyTubes": 1,
+      "notes": "依使用者提供的第 7 關完整位置圖建立。hidden=true 會先顯示問號，當該格成為最上層時自動翻開。",
+      "tubes": [
+        [
+          {
+            "type": "drop",
+            "hidden": true
+          },
+          {
+            "type": "bolt",
+            "hidden": true
+          },
+          {
+            "type": "square",
+            "hidden": true
+          },
+          "triangle"
+        ],
+        [
+          {
+            "type": "diamond",
+            "hidden": true
+          },
+          {
+            "type": "star",
+            "hidden": true
+          },
+          {
+            "type": "square",
+            "hidden": true
+          },
+          "heart"
+        ],
+        [
+          {
+            "type": "plus",
+            "hidden": true
+          },
+          {
+            "type": "diamond",
+            "hidden": true
+          },
+          {
+            "type": "pentagon",
+            "hidden": true
+          },
+          "line"
+        ],
+        [
+          {
+            "type": "star",
+            "hidden": true
+          },
+          {
+            "type": "heart",
+            "hidden": true
+          },
+          {
+            "type": "bolt",
+            "hidden": true
+          },
+          "line"
+        ],
+        [
+          {
+            "type": "circle",
+            "hidden": true
+          },
+          {
+            "type": "pentagon",
+            "hidden": true
+          },
+          {
+            "type": "plus",
+            "hidden": true
+          },
+          "line"
+        ],
+        [
+          {
+            "type": "square",
+            "hidden": true
+          },
+          {
+            "type": "bars",
+            "hidden": true
+          },
+          {
+            "type": "square",
+            "hidden": true
+          },
+          "triangle"
+        ],
+        [
+          {
+            "type": "star",
+            "hidden": true
+          },
+          {
+            "type": "bars",
+            "hidden": true
+          },
+          {
+            "type": "heart",
+            "hidden": true
+          },
+          "bolt"
+        ],
+        [
+          {
+            "type": "star",
+            "hidden": true
+          },
+          {
+            "type": "drop",
+            "hidden": true
+          },
+          {
+            "type": "circle",
+            "hidden": true
+          },
+          "drop"
+        ],
+        [
+          {
+            "type": "drop",
+            "hidden": true
+          },
+          {
+            "type": "triangle",
+            "hidden": true
+          },
+          {
+            "type": "plus",
+            "hidden": true
+          },
+          "diamond"
+        ],
+        [
+          {
+            "type": "circle",
+            "hidden": true
+          },
+          {
+            "type": "heart",
+            "hidden": true
+          },
+          {
+            "type": "bars",
+            "hidden": true
+          },
+          "bolt"
+        ],
+        [
+          {
+            "type": "diamond",
+            "hidden": true
+          },
+          {
+            "type": "pentagon",
+            "hidden": true
+          },
+          {
+            "type": "triangle",
+            "hidden": true
+          },
+          "circle"
+        ],
+        [
+          {
+            "type": "bars",
+            "hidden": true
+          },
+          {
+            "type": "plus",
+            "hidden": true
+          },
+          {
+            "type": "pentagon",
+            "hidden": true
+          },
+          "line"
+        ],
+        [],
+        []
+      ]
+    },
+    {
+      "id": "7A",
+      "name": "第 7A 關",
+      "extraEmptyTubes": 1,
+      "notes": "第 7A 關已依使用者截圖補齊；hidden=true 會先顯示問號，當該格成為最上層時自動翻開。",
+      "tubes": [
+        [
+          "diamond",
+          "circle",
+          "plus",
+          "bolt"
+        ],
+        [
+          "plus",
+          "square",
+          "pentagon",
+          "circle"
+        ],
+        [
+          "heart",
+          "square",
+          "bolt",
+          "triangle"
+        ],
+        [
+          "triangle",
+          "pentagon",
+          "drop",
+          "circle"
+        ],
+        [
+          "bars",
+          "heart",
+          "bolt",
+          "drop"
+        ],
+        [
+          "star",
+          "bars",
+          "triangle",
+          "line"
+        ],
+        [
+          "star",
+          "pentagon",
+          "drop",
+          "square"
+        ],
+        [
+          "diamond",
+          "heart",
+          "square",
+          "line"
+        ],
+        [
+          "bars",
+          "bolt",
+          "triangle",
+          "diamond"
+        ],
+        [
+          "bars",
+          "line",
+          "pentagon",
+          "heart"
+        ],
+        [
+          "plus",
+          "circle",
+          "plus",
+          "star"
+        ],
+        [
+          "star",
+          "drop",
+          "line",
+          "diamond"
+        ],
+        [],
+        []
+      ]
+    },
+    {
+      "id": "7B",
+      "name": "第 7B 關",
+      "extraEmptyTubes": 1,
+      "notes": "依使用者提供的第 7B 關截圖建立；第 8 支最底層問號依使用者說明補為紫色直條。",
+      "tubes": [
+        [
+          "line",
+          "pentagon",
+          "bolt",
+          "plus"
+        ],
+        [
+          "bolt",
+          "triangle",
+          "pentagon",
+          "bars"
+        ],
+        [
+          "square",
+          "diamond",
+          "circle",
+          "plus"
+        ],
+        [
+          "star",
+          "pentagon",
+          "heart",
+          "plus"
+        ],
+        [
+          "bolt",
+          "star",
+          "heart",
+          "drop"
+        ],
+        [
+          "circle",
+          "heart",
+          "circle",
+          "square"
+        ],
+        [
+          "bars",
+          "star",
+          "pentagon",
+          "triangle"
+        ],
+        [
+          "bars",
+          "line",
+          "drop",
+          "circle"
+        ],
+        [
+          "line",
+          "square",
+          "bolt",
+          "star"
+        ],
+        [
+          "bars",
+          "line",
+          "drop",
+          "diamond"
+        ],
+        [
+          "diamond",
+          "plus",
+          "square",
+          "triangle"
+        ],
+        [
+          "diamond",
+          "heart",
+          "drop",
+          "triangle"
+        ],
+        [],
+        []
+      ]
+    },
+    {
+      "id": "7C",
+      "name": "第 7C 關",
+      "extraEmptyTubes": 1,
+      "notes": "依使用者提供的第 7C 關截圖建立；type=unknown 表示截圖中仍為問號，補齊後才能提供保證可過關提示。",
+      "tubes": [
+        [
+          "bolt",
+          "drop",
+          "line",
+          "bolt"
+        ],
+        [
+          "plus",
+          "diamond",
+          "square",
+          "star"
+        ],
+        [
+          "bolt",
+          "circle",
+          "bars",
+          "heart"
+        ],
+        [
+          "drop",
+          "plus",
+          "heart",
+          "bolt"
+        ],
+        [
+          "circle",
+          "heart",
+          "square",
+          "heart"
+        ],
+        [
+          "star",
+          "diamond",
+          "square",
+          "triangle"
+        ],
+        [
+          "triangle",
+          "plus",
+          "star",
+          "drop"
+        ],
+        [
+          "diamond",
+          "square",
+          "diamond",
+          "bars"
+        ],
+        [
+          "drop",
+          "line",
+          "bars",
+          "line"
+        ],
+        [
+          "star",
+          "circle",
+          "line",
+          "triangle"
+        ],
+        [
+          "plus",
+          "circle",
+          "bars",
+          "triangle"
+        ],
+        [],
+        []
+      ]
+    },
+    {
+      "id": "7D",
+      "name": "第 7D 關",
+      "extraEmptyTubes": 1,
+      "notes": "7C 剩餘兩格問號的反向模擬版本：第 4 支底部三角形、第 7 支底部水滴。",
+      "tubes": [
+        [
+          "bolt",
+          "drop",
+          "line",
+          "bolt"
+        ],
+        [
+          "plus",
+          "diamond",
+          "square",
+          "star"
+        ],
+        [
+          "bolt",
+          "circle",
+          "bars",
+          "heart"
+        ],
+        [
+          "triangle",
+          "plus",
+          "heart",
+          "bolt"
+        ],
+        [
+          "circle",
+          "heart",
+          "square",
+          "heart"
+        ],
+        [
+          "star",
+          "diamond",
+          "square",
+          "triangle"
+        ],
+        [
+          "drop",
+          "plus",
+          "star",
+          "drop"
+        ],
+        [
+          "diamond",
+          "square",
+          "diamond",
+          "bars"
+        ],
+        [
+          "drop",
+          "line",
+          "bars",
+          "line"
+        ],
+        [
+          "star",
+          "circle",
+          "line",
+          "triangle"
+        ],
+        [
+          "plus",
+          "circle",
+          "bars",
+          "triangle"
+        ],
+        [],
+        []
+      ]
+    },
+    {
+      "id": 8,
+      "name": "第 8 關",
+      "extraEmptyTubes": 1,
+      "notes": "第 8 關已依截圖與圖案數量補齊；hidden=true 會先顯示問號，當該格成為最上層時自動翻開。",
+      "tubes": [
+        [
+          {
+            "type": "bolt",
+            "hidden": true
+          },
+          {
+            "type": "bolt",
+            "hidden": true
+          },
+          {
+            "type": "line",
+            "hidden": true
+          },
+          "square"
+        ],
+        [
+          {
+            "type": "star",
+            "hidden": true
+          },
+          {
+            "type": "heart",
+            "hidden": true
+          },
+          {
+            "type": "plus",
+            "hidden": true
+          },
+          "bars"
+        ],
+        [
+          {
+            "type": "line",
+            "hidden": true
+          },
+          {
+            "type": "circle",
+            "hidden": true
+          },
+          {
+            "type": "drop",
+            "hidden": true
+          },
+          "square"
+        ],
+        [
+          {
+            "type": "drop",
+            "hidden": true
+          },
+          {
+            "type": "diamond",
+            "hidden": true
+          },
+          {
+            "type": "star",
+            "hidden": true
+          },
+          "drop"
+        ],
+        [
+          {
+            "type": "line",
+            "hidden": true
+          },
+          {
+            "type": "heart",
+            "hidden": true
+          },
+          {
+            "type": "plus",
+            "hidden": true
+          },
+          "bolt"
+        ],
+        [
+          {
+            "type": "bars",
+            "hidden": true
+          },
+          {
+            "type": "pentagon",
+            "hidden": true
+          },
+          {
+            "type": "heart",
+            "hidden": true
+          },
+          "line"
+        ],
+        [
+          {
+            "type": "plus",
+            "hidden": true
+          },
+          {
+            "type": "diamond",
+            "hidden": true
+          },
+          {
+            "type": "triangle",
+            "hidden": true
+          },
+          "drop"
+        ],
+        [
+          {
+            "type": "plus",
+            "hidden": true
+          },
+          {
+            "type": "circle",
+            "hidden": true
+          },
+          {
+            "type": "star",
+            "hidden": true
+          },
+          "diamond"
+        ],
+        [
+          {
+            "type": "circle",
+            "hidden": true
+          },
+          {
+            "type": "pentagon",
+            "hidden": true
+          },
+          {
+            "type": "star",
+            "hidden": true
+          },
+          "bars"
+        ],
+        [
+          {
+            "type": "square",
+            "hidden": true
+          },
+          {
+            "type": "circle",
+            "hidden": true
+          },
+          {
+            "type": "triangle",
+            "hidden": true
+          },
+          "pentagon"
+        ],
+        [
+          {
+            "type": "bolt",
+            "hidden": true
+          },
+          {
+            "type": "triangle",
+            "hidden": true
+          },
+          {
+            "type": "diamond",
+            "hidden": true
+          },
+          "pentagon"
+        ],
+        [
+          {
+            "type": "square",
+            "hidden": true
+          },
+          {
+            "type": "triangle",
+            "hidden": true
+          },
+          {
+            "type": "bars",
+            "hidden": true
+          },
+          "heart"
+        ],
+        [],
+        []
+      ]
+    },
+    {
+      "id": 9,
+      "name": "第 9 關",
+      "extraEmptyTubes": 1,
+      "notes": "依使用者提供的第 9 關截圖建立；type=unknown 表示截圖中仍為問號。",
+      "tubes": [
+        [
+          "line",
+          "bolt",
+          "triangle",
+          "pentagon"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "diamond",
+          "square"
+        ],
+        [
+          "plus",
+          "triangle",
+          "bolt",
+          "heart"
+        ],
+        [
+          "line",
+          "plus",
+          "drop",
+          "circle"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "pentagon",
+          "bars",
+          "star"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "drop",
+          "downTriangle"
+        ],
+        [
+          "diamond",
+          "pentagon",
+          "drop",
+          "heart"
+        ],
+        [
+          "star",
+          "diamond",
+          "heart",
+          "line"
+        ],
+        [
+          "bars",
+          "bolt",
+          "square",
+          "triangle"
+        ],
+        [
+          "line",
+          "triangle",
+          "bolt",
+          "pentagon"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "star",
+          "bars",
+          "square"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "plus",
+          "star",
+          "downTriangle"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "circle",
+          "heart"
+        ],
+        [],
+        []
+      ]
+    },
+    {
+      "id": 11,
+      "name": "第 11 關",
+      "extraEmptyTubes": 1,
+      "notes": "第 11 關依使用者最新截圖更新；第 1 支底部菱形、第 2 支底部 X、第 4 支底部倒三角形。",
+      "tubes": [
+        [
+          "diamond",
+          "line",
+          "bolt",
+          "star"
+        ],
+        [
+          "cross",
+          "diamond",
+          "square",
+          "bolt"
+        ],
+        [
+          "line",
+          "square",
+          "diamond",
+          "circle"
+        ],
+        [
+          "downTriangle",
+          "bolt",
+          "heart",
+          "pentagon"
+        ],
+        [
+          "circle",
+          "bolt",
+          "star",
+          "triangle"
+        ],
+        [
+          "square",
+          "star",
+          "heart",
+          "bars"
+        ],
+        [
+          "pentagon",
+          "bars",
+          "cross",
+          "diamond"
+        ],
+        [
+          "line",
+          "heart",
+          "downTriangle",
+          "plus"
+        ],
+        [
+          "downTriangle",
+          "square",
+          "pentagon",
+          "plus"
+        ],
+        [
+          "triangle",
+          "cross",
+          "heart",
+          "circle"
+        ],
+        [
+          "plus",
+          "triangle",
+          "drop",
+          "circle"
+        ],
+        [
+          "line",
+          "drop",
+          "bars",
+          "star"
+        ],
+        [
+          "triangle",
+          "drop",
+          "cross",
+          "pentagon"
+        ],
+        [
+          "plus",
+          "bars",
+          "downTriangle",
+          "drop"
+        ],
+        [],
+        []
+      ]
+    },
+    {
+      "id": 12,
+      "name": "第 12 關",
+      "extraEmptyTubes": 1,
+      "notes": "依使用者提供的第 12 關截圖建立；type=unknown 表示截圖中仍為問號。",
+      "tubes": [
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "pentagon",
+          "diamond",
+          "downTriangle"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "triangle",
+          "bars",
+          "star"
+        ],
+        [
+          "plus",
+          "square",
+          "downTriangle",
+          "square"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "pentagon",
+          "bolt",
+          "bars"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "cross",
+          "diamond",
+          "star"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "drop",
+          "downTriangle",
+          "drop"
+        ],
+        [
+          "plus",
+          "line",
+          "square",
+          "cross"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "plus",
+          "drop",
+          "bolt"
+        ],
+        [
+          "cross",
+          "line",
+          "bars",
+          "heart"
+        ],
+        [
+          "downTriangle",
+          "diamond",
+          "triangle",
+          "diamond"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "drop",
+          "heart",
+          "star"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "star",
+          "circle",
+          "line"
+        ],
+        [
+          "circle",
+          "pentagon",
+          "triangle",
+          "heart"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "bolt",
+          "bars",
+          "square"
+        ],
+        [],
+        []
+      ]
+    },
+    {
+      "id": 14,
+      "name": "第 14 關",
+      "extraEmptyTubes": 1,
+      "notes": "依使用者提供的第 14 關更新截圖建立；type=unknown 表示截圖中仍為問號。剩餘未知圖形可由數量推算為 pentagon、star、line、downTriangle 各 1。",
+      "tubes": [
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "heart",
+          "diamond",
+          "triangle"
+        ],
+        [
+          "pentagon",
+          "plus",
+          "bars",
+          "pentagon"
+        ],
+        [
+          "star",
+          "drop",
+          "diamond",
+          "drop"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "star",
+          "cross",
+          "line"
+        ],
+        [
+          "bars",
+          "square",
+          "triangle",
+          "heart"
+        ],
+        [
+          "cross",
+          "downTriangle",
+          "diamond",
+          "line"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "cross",
+          "circle",
+          "drop"
+        ],
+        [
+          "bolt",
+          "circle",
+          "bars",
+          "pentagon"
+        ],
+        [
+          "drop",
+          "square",
+          "bolt",
+          "square"
+        ],
+        [
+          "circle",
+          "heart",
+          "bolt",
+          "plus"
+        ],
+        [
+          "triangle",
+          "circle",
+          "bars",
+          "diamond"
+        ],
+        [
+          "cross",
+          "heart",
+          "plus",
+          "line"
+        ],
+        [
+          "square",
+          "downTriangle",
+          "triangle",
+          "plus"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "bolt",
+          "star",
+          "downTriangle"
+        ],
+        [],
+        []
+      ]
+    }
+  ]
+};
 
 const board = document.querySelector("#board");
 const appShell = document.querySelector(".app-shell");
@@ -1433,7 +1541,7 @@ function getRequestedLevelIndex() {
 
 async function loadLevels() {
   try {
-    const response = await fetch("./levels.json?v=42", { cache: "reload" });
+    const response = await fetch("./levels.json?v=44", { cache: "reload" });
     if (!response.ok) throw new Error("levels unavailable");
     const data = await response.json();
     return data.levels?.length ? data.levels : FALLBACK_LEVELS;

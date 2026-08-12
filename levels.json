@@ -1352,7 +1352,7 @@
       "id": 14,
       "name": "第 14 關",
       "extraEmptyTubes": 1,
-      "notes": "依使用者提供的第 14 關截圖建立；type=unknown 表示截圖中仍為問號。",
+      "notes": "依使用者提供的第 14 關更新截圖建立；type=unknown 表示截圖中仍為問號。剩餘未知圖形可由數量推算為 pentagon、star、line、downTriangle 各 1。",
       "tubes": [
         [
           {
@@ -1370,14 +1370,8 @@
           "pentagon"
         ],
         [
-          {
-            "type": "unknown",
-            "hidden": true
-          },
-          {
-            "type": "unknown",
-            "hidden": true
-          },
+          "star",
+          "drop",
           "diamond",
           "drop"
         ],
@@ -1386,10 +1380,7 @@
             "type": "unknown",
             "hidden": true
           },
-          {
-            "type": "unknown",
-            "hidden": true
-          },
+          "star",
           "cross",
           "line"
         ],
@@ -1410,57 +1401,36 @@
             "type": "unknown",
             "hidden": true
           },
-          {
-            "type": "unknown",
-            "hidden": true
-          },
+          "cross",
           "circle",
           "drop"
         ],
         [
-          {
-            "type": "unknown",
-            "hidden": true
-          },
+          "bolt",
           "circle",
           "bars",
           "pentagon"
         ],
         [
-          {
-            "type": "unknown",
-            "hidden": true
-          },
-          {
-            "type": "unknown",
-            "hidden": true
-          },
+          "drop",
+          "square",
           "bolt",
           "square"
         ],
         [
-          {
-            "type": "unknown",
-            "hidden": true
-          },
+          "circle",
           "heart",
           "bolt",
           "plus"
         ],
         [
-          {
-            "type": "unknown",
-            "hidden": true
-          },
+          "triangle",
           "circle",
           "bars",
           "diamond"
         ],
         [
-          {
-            "type": "unknown",
-            "hidden": true
-          },
+          "cross",
           "heart",
           "plus",
           "line"
