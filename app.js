@@ -1470,6 +1470,100 @@ const FALLBACK_LEVELS = {
         [],
         []
       ]
+    },
+    {
+      "id": "14A",
+      "name": "第 14A 關",
+      "extraEmptyTubes": 1,
+      "notes": "第 14 關剩 3 問號推測版：第 4 支底部 pentagon、第 7 支底部 downTriangle、第 14 支底部 line。此配置已通過解題器檢查。",
+      "tubes": [
+        [
+          "star",
+          "heart",
+          "diamond",
+          "triangle"
+        ],
+        [
+          "pentagon",
+          "plus",
+          "bars",
+          "pentagon"
+        ],
+        [
+          "star",
+          "drop",
+          "diamond",
+          "drop"
+        ],
+        [
+          "pentagon",
+          "star",
+          "cross",
+          "line"
+        ],
+        [
+          "bars",
+          "square",
+          "triangle",
+          "heart"
+        ],
+        [
+          "cross",
+          "downTriangle",
+          "diamond",
+          "line"
+        ],
+        [
+          "downTriangle",
+          "cross",
+          "circle",
+          "drop"
+        ],
+        [
+          "bolt",
+          "circle",
+          "bars",
+          "pentagon"
+        ],
+        [
+          "drop",
+          "square",
+          "bolt",
+          "square"
+        ],
+        [
+          "circle",
+          "heart",
+          "bolt",
+          "plus"
+        ],
+        [
+          "triangle",
+          "circle",
+          "bars",
+          "diamond"
+        ],
+        [
+          "cross",
+          "heart",
+          "plus",
+          "line"
+        ],
+        [
+          "square",
+          "downTriangle",
+          "triangle",
+          "plus"
+        ],
+        [
+          "line",
+          "bolt",
+          "star",
+          "downTriangle"
+        ],
+        [],
+        []
+      ]
     }
   ]
 };
@@ -1538,7 +1632,7 @@ function getRequestedLevelIndex() {
 
 async function loadLevels() {
   try {
-    const response = await fetch("./levels.json?v=45", { cache: "reload" });
+    const response = await fetch("./levels.json?v=46", { cache: "reload" });
     if (!response.ok) throw new Error("levels unavailable");
     const data = await response.json();
     return data.levels?.length ? data.levels : FALLBACK_LEVELS;
