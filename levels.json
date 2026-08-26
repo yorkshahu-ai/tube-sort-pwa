@@ -1544,6 +1544,206 @@
         [],
         []
       ]
+    },
+    {
+      "id": 15,
+      "name": "第 15 關",
+      "extraEmptyTubes": 1,
+      "notes": "依使用者提供的第 15 關截圖建立；type=unknown 表示截圖中仍為問號。已知數量推算剩餘為 bars、downTriangle、line、triangle 各 1。",
+      "tubes": [
+        [
+          "triangle",
+          "square",
+          "diamond",
+          "bars"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "bolt",
+          "pentagon",
+          "cross"
+        ],
+        [
+          "heart",
+          "bolt",
+          "star",
+          "circle"
+        ],
+        [
+          "drop",
+          "diamond",
+          "drop",
+          "cross"
+        ],
+        [
+          "downTriangle",
+          "plus",
+          "pentagon",
+          "plus"
+        ],
+        [
+          "circle",
+          "downTriangle",
+          "diamond",
+          "triangle"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "square",
+          "cross",
+          "heart"
+        ],
+        [
+          "bolt",
+          "circle",
+          "square",
+          "triangle"
+        ],
+        [
+          "line",
+          "plus",
+          "drop",
+          "line"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "plus",
+          "star",
+          "bars"
+        ],
+        [
+          "bars",
+          "star",
+          "circle",
+          "star"
+        ],
+        [
+          {
+            "type": "unknown",
+            "hidden": true
+          },
+          "heart",
+          "pentagon",
+          "downTriangle"
+        ],
+        [
+          "bolt",
+          "pentagon",
+          "cross",
+          "square"
+        ],
+        [
+          "heart",
+          "diamond",
+          "drop",
+          "line"
+        ],
+        [],
+        []
+      ]
+    },
+    {
+      "id": "15A",
+      "name": "第 15A 關",
+      "extraEmptyTubes": 1,
+      "notes": "第 15 關 4 問號推測版之一：第 2 支底部 downTriangle、第 7 支底部 bars、第 10 支底部 triangle、第 12 支底部 line。此配置為解題器找到的 61 步可解候選。",
+      "tubes": [
+        [
+          "triangle",
+          "square",
+          "diamond",
+          "bars"
+        ],
+        [
+          "downTriangle",
+          "bolt",
+          "pentagon",
+          "cross"
+        ],
+        [
+          "heart",
+          "bolt",
+          "star",
+          "circle"
+        ],
+        [
+          "drop",
+          "diamond",
+          "drop",
+          "cross"
+        ],
+        [
+          "downTriangle",
+          "plus",
+          "pentagon",
+          "plus"
+        ],
+        [
+          "circle",
+          "downTriangle",
+          "diamond",
+          "triangle"
+        ],
+        [
+          "bars",
+          "square",
+          "cross",
+          "heart"
+        ],
+        [
+          "bolt",
+          "circle",
+          "square",
+          "triangle"
+        ],
+        [
+          "line",
+          "plus",
+          "drop",
+          "line"
+        ],
+        [
+          "triangle",
+          "plus",
+          "star",
+          "bars"
+        ],
+        [
+          "bars",
+          "star",
+          "circle",
+          "star"
+        ],
+        [
+          "line",
+          "heart",
+          "pentagon",
+          "downTriangle"
+        ],
+        [
+          "bolt",
+          "pentagon",
+          "cross",
+          "square"
+        ],
+        [
+          "heart",
+          "diamond",
+          "drop",
+          "line"
+        ],
+        [],
+        []
+      ]
     }
   ]
 }
