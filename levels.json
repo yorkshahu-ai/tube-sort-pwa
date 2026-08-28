@@ -1847,6 +1847,100 @@
         [],
         []
       ]
+    },
+    {
+      "id": "15C",
+      "name": "第 15C 關",
+      "extraEmptyTubes": 1,
+      "notes": "第 15 關剩 3 問號圖形推測填滿版。第 10 支底部依使用者確認為 downTriangle；剩餘推測為第 2 支底部 triangle、第 7 支底部 bars、第 12 支底部 line。此版圖形數量平衡，但目前解題器未找到保證可過關路徑。",
+      "tubes": [
+        [
+          "triangle",
+          "square",
+          "diamond",
+          "bars"
+        ],
+        [
+          "triangle",
+          "bolt",
+          "pentagon",
+          "cross"
+        ],
+        [
+          "heart",
+          "bolt",
+          "star",
+          "circle"
+        ],
+        [
+          "drop",
+          "diamond",
+          "drop",
+          "cross"
+        ],
+        [
+          "downTriangle",
+          "plus",
+          "pentagon",
+          "plus"
+        ],
+        [
+          "circle",
+          "downTriangle",
+          "diamond",
+          "triangle"
+        ],
+        [
+          "bars",
+          "square",
+          "cross",
+          "heart"
+        ],
+        [
+          "bolt",
+          "circle",
+          "square",
+          "triangle"
+        ],
+        [
+          "line",
+          "plus",
+          "drop",
+          "line"
+        ],
+        [
+          "downTriangle",
+          "plus",
+          "star",
+          "bars"
+        ],
+        [
+          "bars",
+          "star",
+          "circle",
+          "star"
+        ],
+        [
+          "line",
+          "heart",
+          "pentagon",
+          "downTriangle"
+        ],
+        [
+          "bolt",
+          "pentagon",
+          "cross",
+          "square"
+        ],
+        [
+          "heart",
+          "diamond",
+          "drop",
+          "line"
+        ],
+        [],
+        []
+      ]
     }
   ]
 }
