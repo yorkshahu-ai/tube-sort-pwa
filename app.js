@@ -1961,6 +1961,100 @@ const FALLBACK_LEVELS = {
         [],
         []
       ]
+    },
+    {
+      "id": "15D",
+      "name": "第 15D 關",
+      "extraEmptyTubes": 1,
+      "notes": "第 15 關可過關推測版。保留 15B 作為第 10 支底部 downTriangle 的確認版；本版為了建立可解盤面，採用已驗證可解候選：第 2 支底部 downTriangle、第 7 支底部 bars、第 10 支底部 triangle、第 12 支底部 line。",
+      "tubes": [
+        [
+          "triangle",
+          "square",
+          "diamond",
+          "bars"
+        ],
+        [
+          "downTriangle",
+          "bolt",
+          "pentagon",
+          "cross"
+        ],
+        [
+          "heart",
+          "bolt",
+          "star",
+          "circle"
+        ],
+        [
+          "drop",
+          "diamond",
+          "drop",
+          "cross"
+        ],
+        [
+          "downTriangle",
+          "plus",
+          "pentagon",
+          "plus"
+        ],
+        [
+          "circle",
+          "downTriangle",
+          "diamond",
+          "triangle"
+        ],
+        [
+          "bars",
+          "square",
+          "cross",
+          "heart"
+        ],
+        [
+          "bolt",
+          "circle",
+          "square",
+          "triangle"
+        ],
+        [
+          "line",
+          "plus",
+          "drop",
+          "line"
+        ],
+        [
+          "triangle",
+          "plus",
+          "star",
+          "bars"
+        ],
+        [
+          "bars",
+          "star",
+          "circle",
+          "star"
+        ],
+        [
+          "line",
+          "heart",
+          "pentagon",
+          "downTriangle"
+        ],
+        [
+          "bolt",
+          "pentagon",
+          "cross",
+          "square"
+        ],
+        [
+          "heart",
+          "diamond",
+          "drop",
+          "line"
+        ],
+        [],
+        []
+      ]
     }
   ]
 };
@@ -2029,7 +2123,7 @@ function getRequestedLevelIndex() {
 
 async function loadLevels() {
   try {
-    const response = await fetch("./levels.json?v=50", { cache: "reload" });
+    const response = await fetch("./levels.json?v=51", { cache: "reload" });
     if (!response.ok) throw new Error("levels unavailable");
     const data = await response.json();
     return data.levels?.length ? data.levels : FALLBACK_LEVELS;
