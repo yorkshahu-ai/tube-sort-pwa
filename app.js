@@ -1769,7 +1769,7 @@ const FALLBACK_LEVELS = {
       "id": "15B",
       "name": "第 15B 關",
       "extraEmptyTubes": 1,
-      "notes": "第 15 關剩 3 問號後重新推測版。若把截圖第 10 支底部判讀為 downTriangle，6 種剩餘排列皆未找到可解路徑；本版改採解題器可解候選：第 2 支底部 line、第 7 支底部 bars、第 10 支底部 triangle、第 12 支底部 downTriangle。",
+      "notes": "第 15 關最新確認版：第 10 支底部為 downTriangle；第 2、第 7、第 12 支底部仍為問號。剩餘未知圖形依數量為 bars、line、triangle 各 1；目前不硬填推測，避免錯誤提示。",
       "tubes": [
         [
           "triangle",
@@ -1778,7 +1778,10 @@ const FALLBACK_LEVELS = {
           "bars"
         ],
         [
-          "line",
+          {
+            "type": "unknown",
+            "hidden": true
+          },
           "bolt",
           "pentagon",
           "cross"
@@ -1808,7 +1811,10 @@ const FALLBACK_LEVELS = {
           "triangle"
         ],
         [
-          "bars",
+          {
+            "type": "unknown",
+            "hidden": true
+          },
           "square",
           "cross",
           "heart"
@@ -1826,7 +1832,7 @@ const FALLBACK_LEVELS = {
           "line"
         ],
         [
-          "triangle",
+          "downTriangle",
           "plus",
           "star",
           "bars"
@@ -1838,7 +1844,10 @@ const FALLBACK_LEVELS = {
           "star"
         ],
         [
-          "downTriangle",
+          {
+            "type": "unknown",
+            "hidden": true
+          },
           "heart",
           "pentagon",
           "downTriangle"
@@ -1926,7 +1935,7 @@ function getRequestedLevelIndex() {
 
 async function loadLevels() {
   try {
-    const response = await fetch("./levels.json?v=48", { cache: "reload" });
+    const response = await fetch("./levels.json?v=49", { cache: "reload" });
     if (!response.ok) throw new Error("levels unavailable");
     const data = await response.json();
     return data.levels?.length ? data.levels : FALLBACK_LEVELS;
