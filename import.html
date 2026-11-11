@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#07131f" />
+    <title>匯入新關卡｜試管分類實驗室</title>
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="apple-touch-icon" href="./assets/icon-192.png" />
+    <link rel="icon" href="./assets/icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css?v=53" />
+  </head>
+  <body class="import-page">
+    <main class="import-shell" aria-label="匯入新關卡">
+      <header class="import-header">
+        <a class="icon-button back-button" href="./index.html" aria-label="返回遊戲">
+          <span aria-hidden="true">↶</span>
+        </a>
+        <div class="level-heading">
+          <span class="eyebrow">LAB SORT</span>
+          <h1>匯入關卡</h1>
+        </div>
+      </header>
+
+      <section class="import-panel">
+        <h2>1. 上傳截圖</h2>
+        <div class="import-form">
+          <label class="import-field">
+            <span>選擇圖片</span>
+            <input id="imageInput" type="file" accept="image/*" />
+          </label>
+          <img id="imagePreview" class="import-preview" alt="上傳的關卡截圖預覽" />
+          <p class="import-note">圖片會留在你的瀏覽器，不會上傳到伺服器。請對照圖片，先選圖案再點試管格子。</p>
+        </div>
+      </section>
+
+      <section class="import-panel">
+        <h2>2. 建立關卡</h2>
+        <div class="import-form">
+          <label class="import-field">
+            <span>關卡名稱</span>
+            <input id="levelName" type="text" value="自訂關卡" />
+          </label>
+          <label class="import-field">
+            <span>試管數量</span>
+            <select id="tubeCount">
+              <option value="14">14 支</option>
+              <option value="15">15 支</option>
+              <option value="16" selected>16 支</option>
+            </select>
+          </label>
+          <label class="import-toggle">
+            <input id="hideLowerCells" type="checkbox" checked />
+            <span>非最上層先用問號蓋住</span>
+          </label>
+        </div>
+      </section>
+
+      <section class="import-panel">
+        <h2>3. 填入試管內容</h2>
+        <p class="import-note">先選圖案，再點格子。每支試管由上到下填；空瓶留空，未知格選「?」。</p>
+        <div class="symbol-palette" id="symbolPalette" aria-label="選擇圖案"></div>
+        <p id="activeToolLabel" class="import-note">目前選取：? 未知</p>
+        <div id="tubeEditorGrid" class="tube-editor-grid"></div>
+      </section>
+
+      <section class="import-panel">
+        <h2>4. 產生線上試玩</h2>
+        <div class="import-actions">
+          <button id="generateButton" class="import-action" type="button">產生試玩</button>
+          <button id="copyButton" class="import-action secondary" type="button" disabled>複製連結</button>
+        </div>
+        <div id="resultBox" class="result-box">
+          <p id="validationMessage" class="import-note"></p>
+          <a id="playLink" class="result-link" href="./index.html">尚未產生</a>
+        </div>
+      </section>
+
+      <p class="practice-note">益智遊戲-末日暄囂試劑大師挑戰練習，請勿轉載。</p>
+    </main>
+
+    <script src="./import.js?v=53" type="module"></script>
+  </body>
+</html>
