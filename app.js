@@ -2078,7 +2078,7 @@ const winDialog = document.querySelector("#winDialog");
 const winText = document.querySelector("#winText");
 const patternToggle = document.querySelector("#patternToggle");
 
-let levels = FALLBACK_LEVELS;
+let levels = FALLBACK_LEVELS.levels;
 let state = {
   levelIndex: 0,
   tubes: [],
@@ -2093,8 +2093,10 @@ let state = {
 };
 
 async function init() {
+  const customLevel = getCustomLevelFromUrl();
   levels = await loadLevels();
-  const requestedLevelIndex = getRequestedLevelIndex();
+  if (customLevel) levels = [customLevel, ...levels];
+  const requestedLevelIndex = customLevel ? 0 : getRequestedLevelIndex();
   const saved = loadSave();
   if (requestedLevelIndex !== null) {
     startLevel(requestedLevelIndex, false);
@@ -2123,13 +2125,49 @@ function getRequestedLevelIndex() {
 
 async function loadLevels() {
   try {
-    const response = await fetch("./levels.json?v=51", { cache: "reload" });
+    const response = await fetch("./levels.json?v=53", { cache: "reload" });
     if (!response.ok) throw new Error("levels unavailable");
     const data = await response.json();
-    return data.levels?.length ? data.levels : FALLBACK_LEVELS;
+    return data.levels?.length ? data.levels : FALLBACK_LEVELS.levels;
   } catch {
-    return FALLBACK_LEVELS;
+    return FALLBACK_LEVELS.levels;
   }
+}
+
+function getCustomLevelFromUrl() {
+  const encoded = new URLSearchParams(window.location.search).get("custom");
+  if (!encoded) return null;
+
+  try {
+    const base64 = encoded.replace(/-/g, "+").replace(/_/g, "/");
+    const padded = base64.padEnd(Math.ceil(base64.length / 4) * 4, "=");
+    const binary = atob(padded);
+    const bytes = Uint8Array.from(binary, (char) => char.charCodeAt(0));
+    const parsed = JSON.parse(new TextDecoder().decode(bytes));
+    return normalizeCustomLevel(parsed);
+  } catch {
+    return null;
+  }
+}
+
+function normalizeCustomLevel(level) {
+  if (!level || !Array.isArray(level.tubes)) return null;
+  return {
+    id: level.id || "自訂",
+    name: level.name || "自訂關卡",
+    extraEmptyTubes: Number.isFinite(level.extraEmptyTubes) ? level.extraEmptyTubes : 1,
+    notes: level.notes || "由匯入頁產生的線上試玩關卡。",
+    tubes: level.tubes.map((tube) => {
+      if (!Array.isArray(tube)) return [];
+      return tube.slice(0, CAPACITY).map((cell) => {
+        const normalized = normalizeCell(cell);
+        if (normalized.type !== "unknown" && !CHEMISTRY[normalized.type]) {
+          return { type: "unknown", hidden: true };
+        }
+        return normalized;
+      });
+    })
+  };
 }
 
 function bindEvents() {

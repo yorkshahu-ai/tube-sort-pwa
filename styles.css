@@ -39,6 +39,12 @@ body {
   overflow: hidden;
 }
 
+body.import-page {
+  height: auto;
+  min-height: 100svh;
+  overflow: auto;
+}
+
 button {
   color: inherit;
   font: inherit;
@@ -48,7 +54,7 @@ button {
 .app-shell {
   position: relative;
   display: grid;
-  grid-template-rows: auto auto auto auto minmax(0, 1fr) auto auto;
+  grid-template-rows: auto auto auto auto auto minmax(0, 1fr) auto auto;
   height: 100svh;
   width: min(100vw, 480px);
   margin: 0 auto;
@@ -259,6 +265,22 @@ h1 {
   gap: 6px;
   min-height: 28px;
   padding: 1px 0 3px;
+}
+
+.import-link {
+  display: grid;
+  place-items: center;
+  justify-self: center;
+  min-height: 24px;
+  width: min(100%, 180px);
+  margin: 0 0 2px;
+  border: 1px solid rgba(247, 207, 117, 0.42);
+  border-radius: 999px;
+  color: #ffe5a0;
+  background: rgba(8, 24, 36, 0.56);
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-decoration: none;
 }
 
 .level-picker {
@@ -687,7 +709,7 @@ h1 {
   }
 
   .app-shell {
-    grid-template-rows: auto auto auto auto minmax(0, 1fr) auto auto;
+    grid-template-rows: auto auto auto auto auto minmax(0, 1fr) auto auto;
     padding: max(6px, env(safe-area-inset-top)) 10px max(8px, env(safe-area-inset-bottom));
   }
 
@@ -765,6 +787,12 @@ h1 {
 
   .level-picker {
     width: min(100%, 180px);
+  }
+
+  .import-link {
+    min-height: 20px;
+    width: min(100%, 150px);
+    font-size: 0.66rem;
   }
 
   .level-picker-summary {
@@ -864,5 +892,249 @@ h1 {
 
   .control-button span:first-child {
     font-size: 1.25rem;
+  }
+}
+
+.import-shell {
+  display: grid;
+  gap: 12px;
+  min-height: 100svh;
+  width: min(100vw, 720px);
+  margin: 0 auto;
+  padding: max(12px, env(safe-area-inset-top)) 12px max(16px, env(safe-area-inset-bottom));
+}
+
+.import-header {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  align-items: center;
+  gap: 10px;
+}
+
+.import-panel {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  padding: 12px;
+  background: rgba(9, 24, 38, 0.82);
+}
+
+.import-panel h2 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+}
+
+.import-note {
+  margin: 4px 0 0;
+  color: #b9cdd8;
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
+.import-form {
+  display: grid;
+  gap: 10px;
+}
+
+.import-field {
+  display: grid;
+  gap: 5px;
+  color: #d9edf7;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.import-field input,
+.import-field select {
+  min-height: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 6px;
+  padding: 0 10px;
+  color: #f4fbff;
+  background: rgba(3, 14, 22, 0.9);
+  font: inherit;
+}
+
+.import-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #d9edf7;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.import-preview {
+  display: none;
+  width: 100%;
+  max-height: 360px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.import-preview.visible {
+  display: block;
+}
+
+.tube-editor-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.symbol-palette {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 6px;
+  margin: 8px 0;
+  padding: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  background: rgba(4, 16, 25, 0.96);
+}
+
+.palette-button {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  min-height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 7px;
+  color: #fff;
+  background: rgba(12, 33, 48, 0.9);
+  font-size: 1.18rem;
+  font-weight: 900;
+}
+
+.palette-button.active {
+  border-color: rgba(247, 207, 117, 0.86);
+  background: linear-gradient(#d89b3f, #935a20);
+  box-shadow: 0 0 0 2px rgba(247, 207, 117, 0.18);
+}
+
+.tube-editor {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+.tube-editor-title {
+  color: #ffe2a0;
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.cell-selects {
+  display: none;
+  gap: 4px;
+}
+
+.cell-selects select {
+  min-height: 34px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 6px;
+  color: #f4fbff;
+  background: rgba(4, 16, 25, 0.9);
+  font-size: 0.78rem;
+}
+
+.quick-tube {
+  display: grid;
+  grid-template-rows: repeat(4, 38px);
+  width: min(100%, 66px);
+  margin: 0 auto;
+  border: 2px solid rgba(235, 250, 255, 0.42);
+  border-top: 0;
+  border-radius: 0 0 24px 24px;
+  overflow: hidden;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.03) 30%, rgba(255, 255, 255, 0.16));
+}
+
+.quick-cell {
+  min-width: 0;
+  min-height: 0;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: #fff;
+  background: rgba(12, 33, 48, 0.92);
+  font-size: 1.35rem;
+  font-weight: 900;
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.45);
+}
+
+.quick-cell.is-empty {
+  color: rgba(255, 255, 255, 0.28);
+  background: rgba(7, 18, 27, 0.72);
+}
+
+.quick-cell.is-unknown {
+  color: #f6fbff;
+  background: linear-gradient(180deg, rgba(13, 35, 48, 0.98), rgba(4, 18, 27, 0.98));
+}
+
+.import-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.import-action {
+  min-height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 7px;
+  color: #fff;
+  background: linear-gradient(#d4494b, var(--danger-2));
+  font-weight: 900;
+}
+
+.import-action.secondary {
+  background: linear-gradient(#35566c, #1b3142);
+}
+
+.result-box {
+  display: none;
+  gap: 8px;
+}
+
+.result-box.visible {
+  display: grid;
+}
+
+.result-link {
+  overflow-wrap: anywhere;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 7px;
+  padding: 8px;
+  color: #d9f4ff;
+  background: rgba(3, 14, 22, 0.88);
+  font-size: 0.72rem;
+}
+
+@media (min-width: 620px) {
+  .tube-editor-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 430px) {
+  .symbol-palette {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .tube-editor-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px 6px;
+  }
+
+  .quick-tube {
+    width: min(100%, 58px);
+    grid-template-rows: repeat(4, 34px);
+  }
+
+  .quick-cell {
+    font-size: 1.16rem;
   }
 }

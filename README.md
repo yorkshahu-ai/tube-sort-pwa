@@ -37,6 +37,7 @@ tube-sort-pwa/
 - 勝利彈窗與下一關。
 - 目前關卡、局面、步數與撤回紀錄會存到 `localStorage`。
 - `manifest.json` 與 `sw.js` 已加入，可離線遊玩並加入手機主畫面。
+- `import.html` 可上傳關卡截圖作為對照，手動填入試管內容後產生線上試玩連結。
 
 ## 本機預覽
 
@@ -54,6 +55,18 @@ http://127.0.0.1:5173
 ```
 
 ## 新增關卡
+
+若只是想快速試玩新的截圖關卡，不需要先改 GitHub 檔案：
+
+1. 開啟 `import.html`。
+2. 上傳關卡截圖。
+3. 先選圖案，再點每支試管的格子；由上到下填入。
+4. 按「產生試玩」。
+5. 開啟或分享產生的試玩連結。
+
+這種自訂關卡會放在網址參數中，不會上傳圖片，也不會自動寫回 `levels.json`。
+
+若要把關卡正式收進遊戲，再編輯 `levels.json`：
 
 編輯 `levels.json`：
 
@@ -73,7 +86,7 @@ http://127.0.0.1:5173
 可用圖案代碼：
 
 ```text
-heart, star, bolt, drop, line, bars, pentagon, plus, circle, diamond, square, triangle
+heart, star, bolt, drop, line, bars, pentagon, downTriangle, cross, plus, circle, diamond, square, triangle
 ```
 
 每個非空試管最多 4 個元素，陣列順序是由下到上。
